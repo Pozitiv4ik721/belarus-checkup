@@ -35,3 +35,9 @@ npm install
 
 # 4. Запустите сервер разработки
 npm run dev
+
+---
+
+## 🌐 Демонстрация работы сайта
+
+* https://thyro-guide.vercel.app/
