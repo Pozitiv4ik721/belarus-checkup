@@ -21,8 +21,6 @@
 - Node.js (версии 18.18 или 20+)
 - npm или pnpm
 
----
-
 ## 🌐 Демонстрация работы сайта
 
 * https://thyro-guide.vercel.app/
