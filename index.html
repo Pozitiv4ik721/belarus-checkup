@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Диспансеризация в Беларуси: справочник для пациентов, родителей и медработников по постановлениям Минздрава № 173 и № 174 (ред. № 13). Маршруты обследований, линия возрастов, форма 3/у-ДР.">
+<title>Диспансеризация в Беларуси — что, когда и где</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='2' y='2' width='44' height='44' rx='11' fill='%230e4b44'/%3E%3Cpath d='M8 30h8l3-9 5 16 4-11 3 4h9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>
+/* Ранняя инициализация темы/шрифта до отрисовки (только настройки оформления) */
+try{
+  var p={}; try{p=JSON.parse(localStorage.getItem('dsp-prefs')||'{}')}catch(e){}
+  if(p.theme)document.documentElement.setAttribute('data-theme',p.theme);
+  if(p.eye)document.documentElement.classList.add('eye');
+  if(p.lang)document.documentElement.lang=p.lang;
+}catch(e){}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+/* ============ Палитра и переменные ============ */
+:root{
+  --pine:#0e4b44;         /* основной глубокий сине-зелёный */
+  --pine-ink:#0c423c;     /* чернила на мятном */
+  --frost:#eef4f2;        /* светлый холодный фон */
+  --paper:#ffffff;
+  --mint:#e1f0ea;         /* мятный для карточек */
+  --mint-2:#d3e8df;
+  --ink:#182625;          /* тёмные чернила текста */
+  --ink-2:#4a615d;
+  --line:#d6e3df;
+  --line-2:#a9c2bb;
+  --amber:#9a4e0c;        /* только «сверить» */
+  --amber-bg:#fcf0dd;
+  --amber-line:#e0aa66;
+  --accent-bg:#0e4b44;
+  --accent-on:#ffffff;
+  --focus:#0e4b44;
+  --band-a:#b8dcd0;
+  --band-b:#83b8a9;
+  --err:#a12b1f;
+  --radius:14px;
+  --radius-ctl:10px;
+  --shadow:0 1px 2px rgba(10,45,40,.05),0 14px 34px rgba(10,45,40,.07);
+  --footer-bg:#0a3833;
+  --footer-ink:#d8ebe5;
+  --footer-ink2:#9fc4b8;
+  --measure:66ch;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --pine:#7cc9b6; --pine-ink:#c9ece1;
+    --frost:#0d1917; --paper:#132420; --mint:#17302a; --mint-2:#1c3a32;
+    --ink:#e8f1ee; --ink-2:#a2bcb4;
+    --line:#27443d; --line-2:#3c5b52;
+    --amber:#f0a94e; --amber-bg:#2e2310; --amber-line:#6d5222;
+    --accent-bg:#5cc2ad; --accent-on:#06231d;
+    --focus:#5cc2ad; --band-a:#1f473f; --band-b:#2c5f53;
+    --err:#f19a8d;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px rgba(0,0,0,.35);
+    --footer-bg:#0a1311; --footer-ink:#cfe2db; --footer-ink2:#8fada3;
+    color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --pine:#7cc9b6; --pine-ink:#c9ece1;
+  --frost:#0d1917; --paper:#132420; --mint:#17302a; --mint-2:#1c3a32;
+  --ink:#e8f1ee; --ink-2:#a2bcb4;
+  --line:#27443d; --line-2:#3c5b52;
+  --amber:#f0a94e; --amber-bg:#2e2310; --amber-line:#6d5222;
+  --accent-bg:#5cc2ad; --accent-on:#06231d;
+  --focus:#5cc2ad; --band-a:#1f473f; --band-b:#2c5f53;
+  --err:#f19a8d;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px rgba(0,0,0,.35);
+  --footer-bg:#0a1311; --footer-ink:#cfe2db; --footer-ink2:#8fada3;
+  color-scheme:dark;
+}
+/* ============ База ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:100%;scroll-behavior:smooth;scroll-padding-top:5.5rem}
+body{
+  margin:0;background:var(--frost);color:var(--ink);
+  font-family:'Golos Text',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  font-size:1.0625rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Source Serif 4',Georgia,'Times New Roman',serif;line-height:1.22;letter-spacing:-.01em;margin:0 0 .5em;color:var(--ink)}
+h1{font-size:clamp(1.9rem,4.2vw,2.9rem)}
+h2{font-size:clamp(1.45rem,2.6vw,1.9rem)}
+h3{font-size:1.2rem}
+p{margin:0 0 1em}
+p,li,td,dd{max-width:var(--measure)}
+a{color:var(--accent-bg);text-underline-offset:.15em}
+a:hover{text-decoration-thickness:2px}
+img,svg{vertical-align:middle}
+button{font:inherit}
+.ic{width:1.15em;height:1.15em;flex:none}
+.wrap{max-width:72rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2rem)}
+.sect{padding-block:clamp(2.6rem,6vw,4.25rem)}
+.visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:1rem;top:-4rem;z-index:200;background:var(--accent-bg);color:var(--accent-on);padding:.7em 1.1em;border-radius:0 0 var(--radius-ctl) var(--radius-ctl);transition:top .18s}
+.skip-link:focus{top:0;color:var(--accent-on)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+hr{border:none;border-top:1px solid var(--line);margin:1.5rem 0}
+.kicker{font-size:.85rem;font-weight:600;color:var(--pine);letter-spacing:.02em;margin-bottom:.6rem}
+[data-theme="dark"] .kicker{color:var(--pine)}
+.lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--ink-2);max-width:62ch}
+.note{font-size:.92rem;color:var(--ink-2)}
+.small{font-size:.88rem}
+.icon-ic{display:inline-flex;align-items:center;justify-content:center}
+/* ============ Шапка ============ */
+#site-header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding-block:.6rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);font-weight:700}
+.brand svg{width:2.2rem;height:2.2rem}
+.brand-name{font-family:'Source Serif 4',Georgia,serif;font-size:1.12rem;line-height:1.1}
+.brand-sub{display:block;font-family:'Golos Text',sans-serif;font-size:.72rem;font-weight:500;color:var(--ink-2)}
+nav.main-nav{display:flex;flex-wrap:wrap;gap:.1rem;margin-inline-start:auto}
+nav.main-nav a{padding:.45em .75em;border-radius:8px;text-decoration:none;color:var(--ink-2);font-weight:500;font-size:.95rem}
+nav.main-nav a:hover{background:var(--mint);color:var(--pine-ink)}
+.hd-tools{display:flex;align-items:center;gap:.4rem}
+.search-wrap{position:relative}
+#search{width:11.5rem;max-width:42vw;padding:.5em .8em .5em 2.1em;border:1.5px solid var(--line-2);border-radius:999px;background:var(--paper);color:var(--ink);font:inherit;font-size:.9rem}
+.search-ic{position:absolute;left:.7em;top:50%;transform:translateY(-50%);color:var(--ink-2);pointer-events:none}
+#search-results{position:absolute;right:0;top:calc(100% + .4rem);width:min(22rem,90vw);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:.4rem;display:none;max-height:60vh;overflow:auto;z-index:120}
+#search-results.open{display:block}
+#search-results .sr-item{display:block;width:100%;text-align:left;border:none;background:transparent;color:var(--ink);padding:.55em .7em;border-radius:8px;cursor:pointer}
+#search-results .sr-item:hover,#search-results .sr-item:focus-visible{background:var(--mint)}
+#search-results .sr-kind{display:block;font-size:.75rem;color:var(--ink-2)}
+.tool-btn{display:inline-flex;align-items:center;gap:.4em;border:1.5px solid var(--line-2);background:var(--paper);color:var(--ink);border-radius:999px;padding:.5em .75em;cursor:pointer;font-size:.9rem;font-weight:600}
+.tool-btn:hover{background:var(--mint)}
+.tool-btn[aria-pressed="true"]{background:var(--accent-bg);color:var(--accent-on);border-color:var(--accent-bg)}
+.eye-btn span.lbl{font-size:.85rem}
+@media(max-width:640px){ .eye-btn span.lbl{display:none} #search{width:8.5rem} }
+/* ============ Кнопки и поля ============ */
+.btn{display:inline-flex;align-items:center;gap:.55em;background:var(--accent-bg);color:var(--accent-on);border:1.5px solid var(--accent-bg);padding:.68em 1.25em;border-radius:var(--radius-ctl);font-weight:600;text-decoration:none;cursor:pointer;line-height:1.3}
+.btn:hover{filter:brightness(1.07);text-decoration:none}
+.btn.ghost{background:transparent;color:var(--accent-bg)}
+.btn.ghost:hover{background:var(--mint)}
+.btn.big{font-size:1.08rem;padding:.85em 1.5em}
+.btn.small{font-size:.9rem;padding:.45em .9em}
+fieldset{border:none;padding:0;margin:0 0 1.3rem}
+legend{font-weight:600;margin-bottom:.55rem;padding:0}
+label.f-label{display:block;font-weight:600;margin-bottom:.4rem}
+input[type=text],input[type=date],input[type=number],select,textarea{width:100%;padding:.62em .8em;border:1.5px solid var(--line-2);border-radius:var(--radius-ctl);background:var(--paper);color:var(--ink);font:inherit}
+input[type=date]{min-height:2.9em}
+textarea{min-height:5.5em;resize:vertical}
+.choices{display:flex;flex-wrap:wrap;gap:.55rem}
+.choice{display:inline-flex;align-items:center;gap:.55em;border:1.5px solid var(--line-2);border-radius:var(--radius-ctl);padding:.5em .95em;cursor:pointer;background:var(--paper);min-height:2.75em}
+.choice input{accent-color:var(--accent-bg);width:1.1em;height:1.1em;margin:0}
+.choice:has(input:checked){border-color:var(--accent-bg);background:var(--mint);font-weight:600;color:var(--pine-ink)}
+.hint{font-size:.88rem;color:var(--ink-2);margin-top:.4rem}
+.err-box{border:1.5px solid var(--err);border-left-width:6px;border-radius:var(--radius-ctl);padding:.9em 1.1em;background:var(--paper);color:var(--err);margin-top:1rem}
+.err-box a{color:var(--err);font-weight:600}
+.f-row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+/* ============ Карточки, таблицы, метки ============ */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1.1rem,2.5vw,1.6rem)}
+.card.mint{background:var(--mint)}
+.grid{display:grid;gap:1rem}
+.grid.c2{grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);margin-top:1rem}
+table{border-collapse:collapse;width:100%;min-width:32rem;font-size:.95rem}
+caption{text-align:left;font-weight:600;padding:.8em 1em .2em}
+th,td{padding:.65em .9em;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{font-size:.82rem;color:var(--ink-2);font-weight:600;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+.chip{display:inline-flex;align-items:center;gap:.45em;background:var(--mint);color:var(--pine-ink);border-radius:999px;padding:.32em .95em;font-weight:600;font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0 1rem}
+.vf{display:inline-flex;align-items:center;gap:.35em;font-size:.74rem;font-weight:700;padding:.14em .6em;border-radius:999px;background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-line);white-space:nowrap;line-height:1.5}
+.vf .ic{width:1em;height:1em}
+.vf-note{background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:var(--radius-ctl);padding:.8em 1em;color:var(--ink);font-size:.92rem;margin-top:1rem;display:flex;gap:.6em;align-items:flex-start}
+.vf-note .ic{color:var(--amber);margin-top:.2em}
+.ref{font-size:.82rem;color:var(--ink-2);white-space:normal}
+/* ============ Главный экран ============ */
+#hero{background:var(--paper);border-bottom:1px solid var(--line)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem;align-items:center}
+.link-pro{display:inline-flex;align-items:center;gap:.35em;font-weight:600;padding:.6em .4em}
+/* Линия возрастов */
+.tl{background:var(--frost);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1rem,3vw,1.75rem);margin-top:2.2rem}
+#hero .tl{background:var(--frost)}
+.tl-head{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:flex-end}
+.tl-head h2{margin:0;font-size:1.35rem}
+.tl-ctl{display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-end}
+.tl-ctl .f-label{margin-bottom:.25rem;font-size:.9rem}
+.tl-ctl input[type=date]{width:11.5rem}
+.tl-readout{display:flex;align-items:baseline;gap:.5rem}
+#tl-out{font-family:'Source Serif 4',Georgia,serif;font-size:1.7rem;font-weight:700;color:var(--accent-bg);min-width:2.2ch;text-align:center}
+.tl-stage{position:relative;margin-top:1.6rem;height:64px}
+.tl-rail{position:absolute;top:20px;left:0;right:0;height:15px;border-radius:999px;background:var(--mint-2);overflow:hidden}
+.tl-band{position:absolute;top:0;bottom:0}
+.tl-band span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;color:var(--pine-ink);letter-spacing:.02em;white-space:nowrap}
+.tl-band.b-18{background:var(--band-a)}
+.tl-band.b-40{background:var(--band-b)}
+.tl-tick{position:absolute;top:38px;font-size:.68rem;color:var(--ink-2);transform:translateX(-50%);white-space:nowrap}
+.tl-tick::before{content:"";position:absolute;left:50%;top:-6px;width:1px;height:5px;background:var(--line-2)}
+.tl-tick.start{transform:none}.tl-tick.start::before{left:0}
+.tl-tick.end{transform:translateX(-100%)}.tl-tick.end::before{left:auto;right:0}
+.tl-tick.s17{transform:translateX(-100%)}
+.tl-tick.s18{transform:none}
+#tl-range{position:absolute;top:9px;left:0;width:100%;height:42px;margin:0;appearance:none;-webkit-appearance:none;background:transparent;cursor:pointer}
+#tl-range::-webkit-slider-runnable-track{background:transparent}
+#tl-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;margin-top:0;border-radius:50%;background:var(--accent-bg);border:3px solid var(--paper);box-shadow:0 1px 5px rgba(0,0,0,.35);transform:translateY(-1px)}
+#tl-range::-moz-range-track{background:transparent}
+#tl-range::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent-bg);border:3px solid var(--paper);box-shadow:0 1px 5px rgba(0,0,0,.35)}
+#tl-range:focus-visible{outline:3px solid var(--focus);outline-offset:-2px;border-radius:8px}
+.tl-viz{position:relative}
+.tl-caret{position:absolute;top:10px;height:52px;width:2px;background:var(--accent-bg);opacity:.6;pointer-events:none}
+.tl-chips{position:relative;list-style:none;margin:2px 0 0;padding:0;height:126px}
+.tl-chips li{position:absolute;transform:translateX(-50%);text-align:center}
+.tl-chips button{display:flex;flex-direction:column;align-items:center;gap:4px;border:none;background:transparent;cursor:pointer;font-size:.74rem;line-height:1.25;color:var(--ink-2);padding:2px 4px;border-radius:8px;max-width:9rem}
+.tl-chips button .dot{width:9px;height:9px;border-radius:50%;background:var(--accent-bg)}
+.tl-chips button:hover,.tl-chips button:focus-visible{color:var(--pine-ink);text-decoration:underline}
+.tl-panel{margin-top:.9rem;background:var(--mint);border-radius:var(--radius);padding:1.05rem 1.25rem;display:flex;gap:.9rem;align-items:flex-start}
+.tl-panel .ic.big{width:1.9rem;height:1.9rem;color:var(--accent-bg);margin-top:.15rem}
+.tl-panel h3{margin:0 0 .2em;font-size:1.15rem}
+.tl-panel p{margin:0 0 .5em}
+.tl-panel .src{font-size:.82rem;color:var(--ink-2);display:block;margin-top:.4em}
+/* ============ Секции ============ */
+.sect-head{margin-bottom:1.6rem}
+.two-col{display:grid;gap:1.5rem;align-items:start}
+@media(min-width:56rem){.two-col{grid-template-columns:minmax(0,25rem) minmax(0,1fr)}}
+.result{margin-top:1.5rem}
+.result h3{margin-top:0}
+/* ============ Вкладки (медработник) ============ */
+[role=tablist]{display:flex;flex-wrap:wrap;gap:.2rem;border-bottom:1px solid var(--line);margin-bottom:1.4rem}
+[role=tab]{border:none;background:transparent;padding:.65em 1em;font:inherit;font-weight:600;color:var(--ink-2);border-bottom:3px solid transparent;cursor:pointer;display:inline-flex;gap:.5em;align-items:center;border-radius:8px 8px 0 0}
+[role=tab]:hover{color:var(--pine-ink);background:var(--mint)}
+[role=tab][aria-selected="true"]{color:var(--accent-bg);border-color:var(--accent-bg)}
+[role=tabpanel]:focus-visible{outline-offset:6px}
+.check-list{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.check-list label{display:flex;gap:.7em;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-ctl);padding:.7em .95em;cursor:pointer}
+.check-list input{accent-color:var(--accent-bg);width:1.15em;height:1.15em;margin-top:.2em;flex:none}
+.check-list label:has(input:checked){background:var(--mint);border-color:var(--line-2)}
+.check-list label:has(input:checked) .cl-t{text-decoration:line-through;text-decoration-thickness:1px;opacity:.75}
+/* ============ FAQ ============ */
+details.acc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+details.acc + details.acc{margin-top:.7rem}
+details.acc summary{cursor:pointer;padding:1em 1.2em;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1em}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary .ic{color:var(--ink-2);transition:transform .2s}
+details.acc[open] summary .ic{transform:rotate(180deg)}
+details.acc .acc-body{padding:.1em 1.2em 1.2rem}
+/* ============ Документы ============ */
+.doc-list{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.5rem}
+.doc-list a{display:inline-flex;align-items:center;gap:.4em;font-weight:600}
+.reg-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;counter-reset:reg}
+.reg-list li{display:flex;gap:.7em;align-items:flex-start;background:var(--paper);border:1px solid var(--amber-line);border-left-width:5px;border-radius:var(--radius-ctl);padding:.7em .95em}
+.hist{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.hist li{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:.65em 0;border-bottom:1px solid var(--line)}
+.hist li:last-child{border-bottom:none}
+.hist .d{font-weight:700;color:var(--pine);white-space:nowrap}
+@media(max-width:560px){.hist li{grid-template-columns:1fr;gap:.1rem}}
+/* ============ Подвал ============ */
+#site-footer{background:var(--footer-bg);color:var(--footer-ink);padding-block:clamp(2.2rem,5vw,3.2rem) 1.6rem;margin-top:2rem}
+#site-footer a{color:var(--footer-ink);text-underline-offset:.15em}
+#site-footer a:hover{color:#fff}
+.ft-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.ft-grid h2{font-size:1rem;color:var(--footer-ink);font-family:'Golos Text',sans-serif;letter-spacing:.01em}
+.ft-grid p,#site-footer li{font-size:.92rem;color:var(--footer-ink2)}
+.ft-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+.ft-disclaimer{display:flex;gap:.8em;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:1em 1.2em;margin-bottom:2rem;font-size:.95rem}
+.ft-disclaimer .ic{margin-top:.2em;flex:none}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:2rem;padding-top:1.2rem;font-size:.85rem;color:var(--footer-ink2);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+/* ============ Тестовая панель ============ */
+#test-panel{margin:1rem;border:2px dashed var(--accent-bg);border-radius:var(--radius);padding:1rem 1.2rem;background:var(--paper);display:none}
+#test-panel.open{display:block}
+#test-panel li.t-ok{color:#1d7a4f}
+#test-panel li.t-bad{color:var(--err)}
+[data-theme="dark"] #test-panel li.t-ok{color:#62d49d}
+/* ============ Анимации только как отклик ============ */
+@media (prefers-reduced-motion:no-preference){
+  .btn,.tool-btn{transition:background-color .15s,filter .15s}
+  .tl-panel{animation:fadein .25s ease}
+  @keyframes fadein{from{opacity:.4}to{opacity:1}}
+  details.acc .acc-body{animation:fadein .2s ease}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+/* ============ Версия для слабовидящих ============ */
+html.eye{font-size:120%}
+html.eye body{line-height:1.75}
+html.eye a{text-decoration:underline}
+html.eye,html.eye[data-theme="dark"],html.eye[data-theme="light"]{
+  --frost:#ffffff!important;--paper:#ffffff!important;--mint:#f0f6f3!important;--mint-2:#e4efe9!important;
+  --ink:#0a0a0a!important;--ink-2:#22302c!important;--line:#79877f!important;--line-2:#5a6a62!important;
+  --accent-bg:#05322d!important;--accent-on:#ffffff!important;--pine:#05322d!important;--pine-ink:#05322d!important;
+  --band-a:#c2ddd3!important;--band-b:#9fc9bc!important;--focus:#005fcc!important;
+  --amber:#7a3c05!important;--amber-bg:#fff1da!important;--amber-line:#b97f35!important;--err:#7d1e14!important;
+  --footer-bg:#06211d!important;--shadow:none!important;color-scheme:light}
+@media (prefers-color-scheme:dark){
+  :root.eye:not([data-theme="light"]){
+  --frost:#ffffff!important;--paper:#ffffff!important;--mint:#f0f6f3!important;--mint-2:#e4efe9!important;
+  --ink:#0a0a0a!important;--ink-2:#22302c!important;--line:#79877f!important;--line-2:#5a6a62!important;
+  --accent-bg:#05322d!important;--accent-on:#ffffff!important;--pine:#05322d!important;--pine-ink:#05322d!important;
+  --band-a:#c2ddd3!important;--band-b:#9fc9bc!important;--focus:#005fcc!important;
+  --amber:#7a3c05!important;--amber-bg:#fff1da!important;--amber-line:#b97f35!important;--err:#7d1e14!important;
+  --footer-bg:#06211d!important;--shadow:none!important;color-scheme:light}
+}
+html.eye :focus-visible{outline-width:4px}
+html.eye #search{border-width:2px}
+/* ============ Печать: чистая памятка ============ */
+#print-root{display:none}
+@media print{
+  :root,[data-theme="dark"],html.eye{
+    --frost:#fff;--paper:#fff;--mint:#f4f4f4;--mint-2:#eee;--ink:#000;--ink-2:#333;
+    --line:#bbb;--line-2:#888;--accent-bg:#000;--accent-on:#fff;--pine:#000;--pine-ink:#000;
+    --amber:#7a4a00;--amber-bg:#fff;--amber-line:#999;--shadow:none;--focus:#000;
+    --footer-bg:#fff;--footer-ink:#000;--footer-ink2:#333}
+  body{background:#fff;color:#000;font-size:11.5pt}
+  .no-print,#site-header,#site-footer,.hero-cta,.tl,.tl-ctl,#test-panel{display:none!important}
+  html{scroll-padding-top:0}
+  .sect{padding-block:.8rem}
+  .card{box-shadow:none;border-color:#bbb}
+  a{color:#000;text-decoration:none}
+  body.printing main,body.printing #site-header,body.printing #site-footer,body.printing #hero{display:none!important}
+  body.printing #print-root{display:block;color:#000}
+  #print-root h1{font-size:16pt;margin-bottom:2pt}
+  #print-root h2{font-size:13pt;margin-top:14pt}
+  #print-root table{min-width:0;font-size:10.5pt}
+  #print-root .meta{font-size:9pt;color:#333;margin-top:18pt;border-top:1px solid #999;padding-top:6pt}
+  .tl-band span{color:#000}
+  details.acc{break-inside:avoid}
+}
+@page{margin:16mm}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Перейти к содержанию</a>
+
+<!-- Иконки (инлайн SVG, стиль Lucide) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-baby" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></symbol>
+    <symbol id="i-steth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  </defs>
+</svg>
+
+<header id="site-header">
+  <div class="wrap hd">
+    <a class="brand" href="#top" aria-label="Диспансеризация в Беларуси — на главную" data-i18n-aria="brand_aria">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="2" y="2" width="44" height="44" rx="11" fill="var(--accent-bg)"/><path d="M8 30h8l3-9 5 16 4-11 3 4h9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="14" r="2.4" fill="#fff"/><circle cx="24" cy="12" r="2.4" fill="#fff" opacity=".75"/><circle cx="36" cy="14" r="2.4" fill="#fff" opacity=".5"/></svg>
+      <span class="brand-name"><span data-i18n="brand1">Диспансеризация</span><span class="brand-sub" data-i18n="brand2">в Беларуси · справочник</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Разделы сайта" data-i18n-aria="nav_aria">
+      <a href="#adult" data-i18n="nav_adult">Мне</a>
+      <a href="#child" data-i18n="nav_child">Моему ребёнку</a>
+      <a href="#pro" data-i18n="nav_pro">Медработникам</a>
+      <a href="#faq" data-i18n="nav_faq">Вопросы</a>
+      <a href="#docs" data-i18n="nav_docs">Документы</a>
+    </nav>
+    <div class="hd-tools">
+      <div class="search-wrap">
+        <svg class="ic search-ic" aria-hidden="true"><use href="#i-search"/></svg>
+        <input id="search" type="search" autocomplete="off" placeholder="Поиск по сайту…" aria-label="Поиск по сайту" aria-expanded="false" aria-controls="search-results" data-i18n-ph="search_ph" data-i18n-aria="search_aria">
+        <div id="search-results" role="listbox" aria-label="Результаты поиска"></div>
+      </div>
+      <button class="tool-btn" id="theme-btn" type="button" aria-pressed="false" aria-label="Тёмная тема" data-i18n-aria="theme_aria"><svg class="ic" aria-hidden="true"><use href="#i-moon" id="theme-use"/></svg></button>
+      <button class="tool-btn eye-btn" id="eye-btn" type="button" aria-pressed="false" aria-label="Версия для слабовидящих" data-i18n-aria="eye_aria"><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg><span class="lbl" data-i18n="eye_lbl">Для слабовидящих</span></button>
+      <button class="tool-btn" id="lang-btn" type="button" aria-label="Пераключыць мову: беларуская"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg><span id="lang-cur">BE</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ======== ГЛАВНЫЙ ЭКРАН ======== -->
+<section id="hero" aria-labelledby="hero-title">
+  <div class="wrap sect">
+    <p class="kicker" data-i18n="hero_kicker">Справочник по постановлениям Минздрава от 16.12.2024 № 173 и № 174 (ред. № 13)</p>
+    <h1 id="hero-title" data-i18n="hero_title">Диспансеризация в Беларуси: что, когда и где</h1>
+    <p class="lead" data-i18n="hero_lead">Бесплатные профилактические обследования для взрослых и детей. Выберите возраст на линии — покажем, какие осмотры предусмотрены, а ниже можно собрать точный маршрут для себя или ребёнка.</p>
+
+    <div class="tl" id="timeline">
+      <div class="tl-head">
+        <div>
+          <h2 data-i18n="tl_title">Линия возрастов</h2>
+          <div class="tl-readout" aria-hidden="true"><span data-i18n="tl_age">Возраст:</span><output id="tl-out">30</output><span id="tl-unit">лет</span></div>
+        </div>
+        <div class="tl-ctl">
+          <div>
+            <label class="f-label" for="tl-dob" data-i18n="tl_dob">Дата рождения</label>
+            <input type="date" id="tl-dob" max="" aria-describedby="tl-hint">
+          </div>
+          <div>
+            <label class="f-label" for="tl-range" data-i18n="tl_range">или возраст, лет</label>
+            <div class="hint" id="tl-hint" data-i18n="tl_hint">Двигайте ползунок, укажите дату или нажмите точку на линии</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-viz">
+        <div class="tl-stage">
+          <div class="tl-rail" aria-hidden="true">
+            <div class="tl-band b-ch" style="left:0;width:34%"><span data-i18n="tl_b1">Дети 0–17</span></div>
+            <div class="tl-band b-18" style="left:34%;width:24.1%"><span>18–39</span></div>
+            <div class="tl-band b-40" style="left:58.1%;width:41.9%"><span data-i18n="tl_b3">40 и старше</span></div>
+          </div>
+          <span class="tl-tick start" style="left:0" aria-hidden="true">0</span>
+          <span class="tl-tick" style="left:10%" aria-hidden="true">5</span>
+          <span class="tl-tick" style="left:20%" aria-hidden="true">10</span>
+          <span class="tl-tick" style="left:28%" aria-hidden="true">14</span>
+          <span class="tl-tick s17" style="left:34%" aria-hidden="true">17</span>
+          <span class="tl-tick s18" style="left:35%" aria-hidden="true">18</span>
+          <span class="tl-tick" style="left:45.7%" aria-hidden="true">25</span>
+          <span class="tl-tick" style="left:58.1%" aria-hidden="true">40</span>
+          <span class="tl-tick" style="left:79%" aria-hidden="true">60</span>
+          <span class="tl-tick end" style="left:100%" aria-hidden="true">80+</span>
+          <input type="range" id="tl-range" min="0" max="80" step="1" value="30" aria-label="Возраст, лет" aria-describedby="tl-hint" data-i18n-aria="tl_range_aria">
+        </div>
+        <div class="tl-caret" id="tl-caret" aria-hidden="true" style="left:47%"></div>
+        <ul class="tl-chips" id="tl-chips" aria-label="Ключевые точки обследований"></ul>
+      </div>
+
+      <div class="tl-panel" id="tl-panel" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn big" href="#adult"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span data-i18n="cta_me">Мне</span></a>
+      <a class="btn big ghost" href="#child"><svg class="ic" aria-hidden="true"><use href="#i-baby"/></svg><span data-i18n="cta_child">Моему ребёнку</span></a>
+      <a class="link-pro" href="#pro"><span data-i18n="cta_pro">Для медработников</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+<!-- ======== МОЙ МАРШРУТ (ВЗРОСЛЫЕ) ======== -->
+<section id="adult" class="sect" aria-labelledby="adult-title">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="kicker" data-i18n="a_kick">Инструкция № 173 · взрослые с 18 лет</p>
+      <h2 id="adult-title" data-i18n="a_title">Мой маршрут: что мне нужно пройти</h2>
+      <p class="lead" data-i18n="a_lead">Ответьте на три вопроса — соберём перечень обследований именно для вашего возраста. Данные не отправляются и не сохраняются: расчёт выполняется в вашем браузере.</p>
+    </div>
+    <div class="two-col">
+      <form id="adult-form" class="card" novalidate aria-describedby="a_priv">
+        <fieldset>
+          <legend data-i18n="a_sex">Пол</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="a-sex" value="f"><span data-i18n="a_sex_f">Женский</span></label>
+            <label class="choice"><input type="radio" name="a-sex" value="m"><span data-i18n="a_sex_m">Мужской</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <label class="f-label" for="a-dob" id="a-dob-lbl"><span data-i18n="a_dob">Дата рождения</span></label>
+          <input type="date" id="a-dob" name="a-dob" aria-labelledby="a-dob-lbl">
+          <p class="hint" data-i18n="a_dob_hint">Например: 12.04.1985. Дату видите только вы — она никуда не отправляется.</p>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="a_pen">Вы достигли общеустановленного пенсионного возраста или до него осталось не более 5 лет?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="a-pen" value="yes"><span data-i18n="yes">Да</span></label>
+            <label class="choice"><input type="radio" name="a-pen" value="no"><span data-i18n="no">Нет</span></label>
+          </div>
+          <p class="hint" data-i18n="a_pen_hint">От ответа зависит длительность: в этот период диспансеризация занимает 2 рабочих дня. Если сомневаетесь, ответьте «нет» — перечень обследований не изменится.</p>
+        </fieldset>
+        <button class="btn" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-clip"/></svg><span data-i18n="a_go">Показать мой маршрут</span></button>
+        <p class="hint" id="a_priv"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> <span data-i18n="a_priv_t">Ничего не сохраняется: ни дата рождения, ни ответы.</span></p>
+      </form>
+      <div class="result" id="adult-result" aria-live="polite">
+        <div class="card mint">
+          <h3 data-i18n="a_empty_t">Здесь появится ваш маршрут</h3>
+          <p class="note" data-i18n="a_empty">Заполните форму слева — покажем группу (18–39 лет или 40+), как часто проходить диспансеризацию, сколько она займёт времени и какие исследования вам положены, со ссылками на пункты Инструкции № 173.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== ДИСПАНСЕРИЗАЦИЯ РЕБЁНКА ======== -->
+<section id="child" class="sect" aria-labelledby="child-title">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="kicker" data-i18n="c_kick">Инструкция № 174 · дети от рождения до 17 лет</p>
+      <h2 id="child-title" data-i18n="c_title">Диспансеризация ребёнка</h2>
+      <p class="lead" data-i18n="c_lead">Укажите дату рождения и пол ребёнка — покажем возрастную группу, перечень осмотров и исследований по приложениям 1–3 к Инструкции № 174.</p>
+    </div>
+    <div class="two-col">
+      <form id="child-form" class="card" novalidate>
+        <fieldset>
+          <label class="f-label" for="c-dob" id="c-dob-lbl"><span data-i18n="c_dob">Дата рождения ребёнка</span></label>
+          <input type="date" id="c-dob" name="c-dob" aria-labelledby="c-dob-lbl">
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="c_sex">Пол ребёнка</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="c-sex" value="f"><span data-i18n="c_girl">Девочка</span></label>
+            <label class="choice"><input type="radio" name="c-sex" value="m"><span data-i18n="c_boy">Мальчик</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" id="c-risk"><span data-i18n="c_risk">Есть факторы риска (для детей до 1 года)</span></label>
+          </div>
+          <div id="c-risk-wrap" hidden style="margin-top:.8rem">
+            <label class="f-label" for="c-risk-sel" data-i18n="c_risk_g">Группа факторов риска (приложение 3)</label>
+            <select id="c-risk-sel"></select>
+          </div>
+          <p class="hint" data-i18n="c_risk_hint">Факторы риска устанавливает врач. Если галочка стоит, добавим схему дополнительного наблюдения из приложения 3.</p>
+        </fieldset>
+        <button class="btn" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-baby"/></svg><span data-i18n="c_go">Показать схему</span></button>
+      </form>
+      <div class="result" id="child-result" aria-live="polite">
+        <div class="card mint">
+          <h3 data-i18n="c_empty_t">Здесь появится схема для ребёнка</h3>
+          <p class="note" data-i18n="c_empty">Для детей до года — помесячный график по приложению 1, для детей 1–17 лет — таблица по приложению 2 с пояснениями сносок. Напомним и про месяц рождения: детскую диспансеризацию проводят преимущественно в нём.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== ДЛЯ МЕДРАБОТНИКА ======== -->
+<section id="pro" class="sect" aria-labelledby="pro-title">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="kicker" data-i18n="p_kick">Амбулаторно-поликлинические организации</p>
+      <h2 id="pro-title" data-i18n="p_title">Для медработника</h2>
+      <p class="lead" data-i18n="p_lead">Рабочие инструменты по Инструкции № 174: чек-лист проведения, группы здоровья, карта 3/у-ДР, калькулятор охвата и справочник факторов риска.</p>
+    </div>
+
+    <div class="tabs">
+      <div role="tablist" aria-label="Инструменты медработника" data-i18n-aria="p_tabs_aria" id="pro-tabs">
+        <button role="tab" id="tab-cl" aria-controls="pane-cl" aria-selected="true" tabindex="0"><svg class="ic" aria-hidden="true"><use href="#i-clip"/></svg><span data-i18n="p_t1">Чек-лист проведения</span></button>
+        <button role="tab" id="tab-hg" aria-controls="pane-hg" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-steth"/></svg><span data-i18n="p_t2">Группы здоровья I–IV</span></button>
+        <button role="tab" id="tab-card" aria-controls="pane-card" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="p_t3">Карта 3/у-ДР</span></button>
+        <button role="tab" id="tab-cov" aria-controls="pane-cov" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-calc"/></svg><span data-i18n="p_t4">Калькулятор охвата</span></button>
+        <button role="tab" id="tab-risk" aria-controls="pane-risk" aria-selected="false" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="p_t5">Факторы риска до 1 года</span></button>
+      </div>
+
+      <div role="tabpanel" id="pane-cl" aria-labelledby="tab-cl" tabindex="0">
+        <p data-i18n="p_cl_lead">Последовательность по пункту 8 Инструкции № 174. Отмечайте выполненное — состояние не сохраняется и очищается при перезагрузке страницы.</p>
+        <div class="vf-note"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="p_cl_vf">Формулировки шагов сверьте с текстом пункта 8 Инструкции № 174 в редакции № 13.</span></div>
+        <p class="chips" style="margin-top:1rem"><span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span id="cl-progress">Выполнено 0 из 7</span></span></p>
+        <ul class="check-list" id="cl-list"></ul>
+        <p style="margin-top:1rem"><button class="btn ghost small" id="cl-reset" type="button"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="p_cl_reset">Сбросить отметки</span></button></p>
+      </div>
+
+      <div role="tabpanel" id="pane-hg" aria-labelledby="tab-hg" tabindex="0" hidden>
+        <p data-i18n="p_hg_lead">По итогам диспансеризации детей распределяют на группы здоровья (пункт 9.1 Инструкции № 174):</p>
+        <div class="grid c2" id="hg-grid"></div>
+        <div class="vf-note"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="p_hg_vf">Дословные критерии групп сверьте с текстом пункта 9.1. Решение о группе здоровья принимает врач — блок справочный.</span></div>
+      </div>
+
+      <div role="tabpanel" id="pane-card" aria-labelledby="tab-card" tabindex="0" hidden>
+        <p data-i18n="p_card_lead">Рабочий черновик карты учёта по форме 3/у-ДР (приложение 4 к № 174). Электронный вид допускается (пункт 13). Заполняется в браузере: данные не отправляются, не сохраняются и очищаются кнопкой «Очистить».</p>
+        <div class="vf-note"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="p_card_vf">Структуру граф официальной формы сверьте с приложением 4 к постановлению № 174.</span></div>
+        <form id="card-form" class="card" style="margin-top:1rem" novalidate>
+          <div class="f-row">
+            <div><label class="f-label" for="k-fio" data-i18n="k_fio">Фамилия, имя, отчество ребёнка</label><input type="text" id="k-fio" autocomplete="off"></div>
+            <div><label class="f-label" for="k-dob" data-i18n="k_dob">Дата рождения</label><input type="date" id="k-dob"></div>
+            <div><label class="f-label" for="k-sex" data-i18n="k_sex">Пол</label>
+              <select id="k-sex"><option value="" data-i18n="k_sex0">—</option><option value="f" data-i18n="k_sex_f">Женский</option><option value="m" data-i18n="k_sex_m">Мужской</option></select></div>
+            <div><label class="f-label" for="k-addr" data-i18n="k_addr">Место жительства</label><input type="text" id="k-addr" autocomplete="off"></div>
+            <div><label class="f-label" for="k-date" data-i18n="k_date">Дата проведения диспансеризации</label><input type="date" id="k-date"></div>
+            <div><label class="f-label" for="k-group" data-i18n="k_group">Группа здоровья (I–IV)</label>
+              <select id="k-group"><option value="" data-i18n="k_group0">—</option><option>I</option><option>II</option><option>III</option><option>IV</option></select></div>
+          </div>
+          <div><label class="f-label" for="k-find" data-i18n="k_find">Выявленные отклонения</label><textarea id="k-find"></textarea></div>
+          <div style="margin-top:1rem"><label class="f-label" for="k-rec" data-i18n="k_rec">Рекомендации</label><textarea id="k-rec"></textarea></div>
+          <div class="f-row" style="margin-top:1rem">
+            <div><label class="f-label" for="k-doc" data-i18n="k_doc">Врач (ФИО, подпись)</label><input type="text" id="k-doc" autocomplete="off"></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem">
+            <button class="btn" type="button" id="k-print"><svg class="ic" aria-hidden="true"><use href="#i-print"/></svg><span data-i18n="k_print">Печать карты</span></button>
+            <button class="btn ghost" type="reset" id="k-clear"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="k_clear">Очистить</span></button>
+          </div>
+        </form>
+      </div>
+
+      <div role="tabpanel" id="pane-cov" aria-labelledby="tab-cov" tabindex="0" hidden>
+        <p data-i18n="p_cov_lead">Охват считается по формуле: (прошли ÷ подлежат) × 100 %. Для детей 0–17 лет плановое значение — не менее 95 % в год (пункт 15 Инструкции № 174).</p>
+        <form id="cov-form" class="card" novalidate>
+          <div class="f-row">
+            <div><label class="f-label" for="cov-due" data-i18n="cov_due">Подлежат диспансеризации, чел.</label><input type="number" id="cov-due" min="0" step="1" inputmode="numeric"></div>
+            <div><label class="f-label" for="cov-done" data-i18n="cov_done">Прошли диспансеризацию, чел.</label><input type="number" id="cov-done" min="0" step="1" inputmode="numeric"></div>
+            <div><label class="f-label" for="cov-who" data-i18n="cov_who">Категория</label>
+              <select id="cov-who"><option value="child" data-i18n="cov_child">Дети 0–17 лет</option><option value="adult" data-i18n="cov_adult">Взрослые</option></select></div>
+          </div>
+          <button class="btn" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-calc"/></svg><span data-i18n="cov_go">Рассчитать охват</span></button>
+        </form>
+        <div class="result" id="cov-result" aria-live="polite"></div>
+        <div class="vf-note"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="p_cov_vf">Критерии охвата для взрослых сверьте с текстом Инструкции № 173 — в приложенных материалах они отсутствуют.</span></div>
+      </div>
+
+      <div role="tabpanel" id="pane-risk" aria-labelledby="tab-risk" tabindex="0" hidden>
+        <p data-i18n="p_risk_lead">Группы факторов риска у детей до 1 года, дополнительное наблюдение и сроки снятия с наблюдения (приложение 3 к № 174):</p>
+        <div class="grid c2" id="risk-grid"></div>
+        <div class="vf-note"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="p_risk_vf">Полные перечни факторов внутри групп сверьте с текстом приложения 3 к постановлению № 174.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ======== FAQ ======== -->
+<section id="faq" class="sect" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="sect-head">
+      <h2 id="faq-title" data-i18n="f_title">Частые вопросы</h2>
+    </div>
+    <details class="acc">
+      <summary><span data-i18n="f1_q">Где проходить диспансеризацию?</span><svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+      <div class="acc-body"><p data-i18n="f1_a">В вашей амбулаторно-поликлинической организации (поликлинике по месту жительства или обслуживания). Детей обследуют преимущественно в месяц рождения. Точный порядок записи уточните в регистратуре или у участкового врача.</p></div>
+    </details>
+    <details class="acc">
+      <summary><span data-i18n="f2_q">Что делать, если при диспансеризации что-то выявят?</span><svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+      <div class="acc-body"><p data-i18n="f2_a">Диспансеризация — профилактическое мероприятие: она помогает вовремя заметить отклонения. При выявлении заболевания медицинскую помощь оказывает врач-специалист по клиническим протоколам. Направление выпишет врач общей практики или педиатр.</p></div>
+    </details>
+    <details class="acc">
+      <summary><span data-i18n="f3_q">Какие справки и выписки я получу?</span><svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+      <div class="acc-body"><p data-i18n="f3_a">По итогам оформляются учётные формы, предусмотренные постановлением Минздрава от 21.08.2025 № 87 (для детей — в том числе карта по форме 3/у-ДР, приложение 4 к № 174).</p><div class="vf-note"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="f3_vf">Состав и вид форм сверьте с текстом постановления № 87.</span></div></div>
+    </details>
+    <details class="acc">
+      <summary><span data-i18n="f4_q">Положен ли оплачиваемый выходной на диспансеризацию?</span><svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+      <div class="acc-body"><p data-i18n="f4_a">Трудовое законодательство предусматривает для работающих граждан время на прохождение медицинских осмотров и диспансеризации. Порядок и гарантии устанавливает Трудовой кодекс Республики Беларусь.</p><div class="vf-note"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span data-i18n="f4_vf">Точную формулировку нормы возьмите из действующего текста Трудового кодекса на pravo.by — не полагайтесь на пересказ, включая этот.</span></div></div>
+    </details>
+    <details class="acc">
+      <summary><span data-i18n="f5_q">Что означает метка «сверить» на этом сайте?</span><svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+      <div class="acc-body"><p data-i18n="f5_a">Так мы помечаем позиции, для которых в приложенных материалах был вторичный источник либо неоднозначная формулировка. Прежде чем опираться на них, сверьте с официальным текстом постановления на etalonline.by или pravo.by — ссылки есть в разделе «Документы».</p></div>
+    </details>
+  </div>
+</section>
+
+<!-- ======== ДОКУМЕНТЫ ======== -->
+<section id="docs" class="sect" aria-labelledby="docs-title">
+  <div class="wrap">
+    <div class="sect-head">
+      <h2 id="docs-title" data-i18n="d_title">Тексты документов и источники</h2>
+      <p class="lead" data-i18n="d_lead">Нормативная база сайта. Официальные тексты — на порталах etalonline.by и pravo.by; ищите документ по номеру постановления.</p>
+    </div>
+    <div class="grid c2">
+      <article class="card">
+        <h3 data-i18n="d_a1_t">Постановление Минздрава от 16.12.2024 № 173</h3>
+        <p data-i18n="d_a1_d">Инструкция о порядке проведения диспансеризации взрослого населения. Действует с 01.01.2025; заменила постановление от 30.08.2023 № 125.</p>
+        <p class="note" data-i18n="d_red">Редакция: постановление Минздрава от 26.02.2026 № 13 (в силе с 23.05.2026).</p>
+        <ul class="doc-list">
+          <li><a href="https://etalonline.by" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg>etalonline.by</a></li>
+          <li><a href="https://pravo.by" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg>pravo.by</a></li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3 data-i18n="d_a2_t">Постановление Минздрава от 16.12.2024 № 174</h3>
+        <p data-i18n="d_a2_d">Инструкция о порядке проведения диспансеризации детского населения. Действует с 01.01.2025.</p>
+        <p class="note" data-i18n="d_red2">Редакция: постановление Минздрава от 26.02.2026 № 13 (в силе с 23.05.2026).</p>
+        <ul class="doc-list">
+          <li><a href="https://etalonline.by" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg>etalonline.by</a></li>
+          <li><a href="https://minzdrav.gov.by" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg>minzdrav.gov.by</a></li>
+        </ul>
+      </article>
+    </div>
+
+    <h3 style="margin-top:2.2rem" data-i18n="d_hist_t">Источники и изменения</h3>
+    <ol class="hist">
+      <li><span class="d">30.08.2023</span><span data-i18n="d_h1">Постановление № 125 — прежний порядок диспансеризации взрослых (утратило силу).</span></li>
+      <li><span class="d">16.12.2024</span><span data-i18n="d_h2">Постановления № 173 (взрослые) и № 174 (дети). Действуют с 01.01.2025.</span></li>
+      <li><span class="d">21.08.2025</span><span data-i18n="d_h3">Постановление № 87 — формы справок и выписок по итогам диспансеризации.</span></li>
+      <li><span class="d">26.02.2026</span><span data-i18n="d_h4">Постановление № 13 — изменения в № 173 и № 174. В силе с 23.05.2026.</span></li>
+    </ol>
+
+    <h3 style="margin-top:2.2rem" data-i18n="d_reg_t">Что нужно сверить с официальными текстами</h3>
+    <p class="note" data-i18n="d_reg_lead">Эти позиции получены из вторичного источника или требуют дословной сверки. На сайте они помечены янтарной меткой «сверить».</p>
+    <ol class="reg-list" id="verify-list"></ol>
+  </div>
+</section>
+</main>
+
+<div id="print-root" aria-hidden="true"></div>
+<div id="test-panel" role="status" aria-label="Результаты встроенного самотеста"></div>
+
+<!-- ======== ПОДВАЛ ======== -->
+<footer id="site-footer">
+  <div class="wrap">
+    <div class="ft-disclaimer">
+      <svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>
+      <span data-i18n="ft_disc">Сайт справочный: он не ставит диагнозы и не назначает лечение. По вопросам здоровья обращайтесь к врачу. Сайт не является официальным изданием правовых актов.</span>
+    </div>
+    <div class="ft-grid">
+      <div>
+        <h2 data-i18n="ft_1_t">Нормативная база</h2>
+        <p data-i18n="ft_1_d">Постановления Минздрава от 16.12.2024 № 173 и № 174, в редакции постановления от 26.02.2026 № 13 (в силе с 23.05.2026). Информация актуализирована: 23.05.2026.</p>
+      </div>
+      <div>
+        <h2 data-i18n="ft_2_t">Официальные источники</h2>
+        <ul>
+          <li><a href="https://etalonline.by" target="_blank" rel="noopener">etalonline.by</a></li>
+          <li><a href="https://pravo.by" target="_blank" rel="noopener">pravo.by</a></li>
+          <li><a href="https://minzdrav.gov.by" target="_blank" rel="noopener">minzdrav.gov.by</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 data-i18n="ft_3_t">Приватность</h2>
+        <p data-i18n="ft_3_d">Вся логика работает в браузере. Дата рождения, пол и содержимое карты 3/у-ДР не отправляются, не сохраняются и не логируются; трекеров и аналитики нет. Локально хранятся только настройки темы, языка и шрифта. Обработка персональных данных в организациях здравоохранения регулируется Законом РБ от 07.05.2021 № 99-З «О защите персональных данных».</p>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span data-i18n="ft_b1">Диспансеризация в Беларуси — независимый справочник</span>
+      <span data-i18n="ft_b2">Сверяйте с официальными текстами: etalonline.by · pravo.by</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======== НОРМАТИВНЫЕ ДАННЫЕ ======== -->
+<script type="application/json" id="data">
+{
+  "meta": {
+    "updated": "23.05.2026",
+    "edition": "ред. постановления Минздрава от 26.02.2026 № 13"
+  },
+  "adult": {
+    "groups": [
+      {"id":"g18_39","from":18,"to":39,"pre":null,"label":"18–39 лет","label_be":"18–39 гадоў","per":"1 раз в 3 года","per_be":"1 раз на 3 гады","days":1,"ref":"п. 5 Инструкции № 173","nv":true},
+      {"id":"g40a","from":40,"to":null,"pre":false,"label":"40 лет и старше","label_be":"40 гадоў і старэй","per":"ежегодно","per_be":"штогод","days":1,"ref":"п. 5 Инструкции № 173","nv":true},
+      {"id":"g40b","from":40,"to":null,"pre":true,"label":"40 лет и старше (за 5 лет до общеустановленного пенсионного возраста и после его достижения)","label_be":"40 гадоў і старэй (за 5 гадоў да агульнаўстаноўленага пенсійнага ўзросту і пасля яго дасягнення)","per":"ежегодно","per_be":"штогод","days":2,"ref":"п. 5 Инструкции № 173","nv":true}
+    ],
+    "exams": [
+      {"id":"oak","name":"Общий анализ крови","name_be":"Агульны аналіз крыві","sex":"any","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"},{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"oam","name":"Общий анализ мочи","name_be":"Агульны аналіз мачы","sex":"any","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"},{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"glu","name":"Глюкоза крови","name_be":"Глюкоза крыві","sex":"any","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"},{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"bio","name":"Биохимический анализ крови: креатинин, АЛТ, общий холестерин, триглицериды","name_be":"Біяхімічны аналіз крыві: крэацінін, АЛТ, агульны халестэрын, трыгліцэрыды","sex":"any","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"},{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"ecg","name":"ЭКГ (электрокардиография)","name_be":"ЭКГ (электракардыяграфія)","sex":"any","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"},{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"rfo","name":"Рентгенологическое (флюорографическое) обследование органов грудной клетки","name_be":"Рэнтгеналагічнае (флюараграфічнае) абследаванне органаў грудной клеткі","sex":"any","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"},{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"vop","name":"Осмотр врачом общей практики","name_be":"Агляд урачом агульнай практыкі","sex":"any","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"},{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"gyn","name":"Осмотр женщин акушеркой или акушером-гинекологом с пальпацией молочных желёз","name_be":"Агляд жанчын акушаркай або акушарам-гінеколагам з пальпацыяй малочных залоз","sex":"f","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"},{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"iod","name":"Измерение внутриглазного давления","name_be":"Вымярэнне ўнутрывочнага ціску","sex":"any","rules":[{"from":40,"to":null,"per":"1 раз в год","per_be":"1 раз на год"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"mouth","name":"Осмотр полости рта (стоматолог или оториноларинголог)","name_be":"Агляд паражніны рота (стаматолаг або атарыналарынголаг)","sex":"any","rules":[{"from":18,"to":39,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"pap","name":"ПАП-тест (цитологическое исследование)","name_be":"ПАП-тэст (цыталагічнае даследаванне)","sex":"f","rules":[{"from":21,"to":29,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"hpv","name":"Тест на вирус папилломы человека (ВПЧ)","name_be":"Тэст на вірус папіломы чалавека (ВПЧ)","sex":"f","rules":[{"from":30,"to":39,"per":"1 раз в 6 лет","per_be":"1 раз на 6 гадоў"},{"from":40,"to":60,"per":"1 раз в 5 лет","per_be":"1 раз на 5 гадоў"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"mammo","name":"Маммография в двух проекциях","name_be":"Мамаграфія ў дзвюх праекцыях","sex":"f","rules":[{"from":49,"to":58,"per":"1 раз в 3 года","per_be":"1 раз на 3 гады"}],"ref":"прил. 1 к № 173","nv":true},
+      {"id":"psa","name":"ПСА (простатспецифический антиген)","name_be":"ПСА (прастатспецыфічны антыген)","sex":"m","rules":[{"from":50,"to":65,"per":"1 раз в 2 года","per_be":"1 раз на 2 гады"}],"ref":"прил. 1 к № 173","nv":true,"nvnote":"В одном источнике указан диапазон 45–65 лет — сверить границы.","nvnote_be":"У адной крыніцы пазначаны дыяпазон 45–65 гадоў — звярыць межы."},
+      {"id":"occult","name":"Анализ кала на скрытую кровь (в 50, 57 и 64 года)","name_be":"Аналіз кала на схаваную кроў (у 50, 57 і 64 гады)","sex":"any","rules":[],"ref":"прил. 1 к № 173","nv":true,"norm":false,"nvnote":"Встречается лишь в одном вторичном источнике. До сверки с приложением 1 к № 173 не показывается как норматив.","nvnote_be":"Сустракаецца толькі ў адной другаснай крыніцы. Да звярэння з дадаткам 1 да № 173 не паказваецца як нарматыў."}
+    ]
+  },
+  "childU1": {
+    "title":"До 1 года","title_be":"Да 1 года","ref":"прил. 1 к № 174",
+    "items": [
+      {"t":"Педиатр участковый или врач общей практики","t_be":"Участковы педыятр або ўрач агульнай практыкі","p":"на дому в первые 3 дня после выписки и на 3-й неделе; далее не реже 1 раза в месяц","p_be":"на даму ў першыя 3 дні пасля выпіскі і на 3-м тыдні; далей не радзей за 1 раз у месяц"},
+      {"t":"Медсестра участковая (на дому)","t_be":"Участковая медсястра (на даму)","p":"в первые 3 дня после выписки, затем 1 раз в неделю; далее не реже 1 раза в месяц","p_be":"у першыя 3 дні пасля выпіскі, потым 1 раз на тыдзень; далей не радзей за 1 раз у месяц"},
+      {"t":"Детский невролог и детский хирург (хирург, травматолог-ортопед)","t_be":"Дзіцячы неўролаг і дзіцячы хірург (хірург, траўматолаг-артапед)","p":"не менее 1 раза в период 1–3 мес.","p_be":"не менш за 1 раз у перыяд 1–3 мес."},
+      {"t":"Офтальмолог","t_be":"Афтальмолаг","p":"не менее 1 раза в период 4–12 мес.","p_be":"не менш за 1 раз у перыяд 4–12 мес."},
+      {"t":"Оториноларинголог","t_be":"Атарыналарынголаг","p":"не менее 1 раза в течение года","p_be":"не менш за 1 раз на працягу года"},
+      {"t":"Стоматолог-терапевт (зубной фельдшер)","t_be":"Стаматолаг-тэрапеўт (зубны фельчар)","p":"1 раз, в 12 мес.","p_be":"1 раз, у 12 мес."},
+      {"t":"Вес, рост, окружность головы и груди","t_be":"Вага, рост, акружнасць галавы і грудзей","p":"не реже 1 раза в месяц","p_be":"не радзей за 1 раз у месяц"},
+      {"t":"Общий анализ крови и общий анализ мочи","t_be":"Агульны аналіз крыві і агульны аналіз мачы","p":"по 1 разу в 1–2 мес. и в 12 мес.","p_be":"па 1 разу ў 1–2 мес. і ў 12 мес."},
+      {"t":"ЭКГ","t_be":"ЭКГ","p":"1 раз в 1–3 мес., если нет записи в периоде новорождённости","p_be":"1 раз у 1–3 мес., калі няма запісу ў перыядзе нованароджанасці"},
+      {"t":"Аудиологическое исследование","t_be":"Аўдыялагічнае даследаванне","p":"не менее 1 раза за первые 3 мес.","p_be":"не менш за 1 раз за першыя 3 мес."}
+    ]
+  },
+  "child": {
+    "cols":["1–2 года","3–6 лет","7–14 лет","15 лет","16 лет","17 лет"],
+    "cols_be":["1–2 гады","3–6 гадоў","7–14 гадоў","15 гадоў","16 гадоў","17 гадоў"],
+    "rows": [
+      {"id":"ped","name":"Педиатр участковый или врач общей практики","name_be":"Участковы педыятр або ўрач агульнай практыкі","cells":["2 раза в год","1 раз в год","1 раз в год","1 раз в год","1 раз в год","1 раз в год"],"ref":"прил. 2 к № 174","nv":true,"nvnote":"Границы объединённых ячеек «2 раза в год / 1 раз в год» — сверить.","nvnote_be":"Межы аб'яднаных вочак «2 разы на год / 1 раз на год» — звярыць."},
+      {"id":"wh","name":"Вес и рост","name_be":"Вага і рост","cells":["2 раза в год","1 раз в год","1 раз в год","1 раз в год","1 раз в год","1 раз в год"],"ref":"прил. 2 к № 174","nv":true,"nvnote":"Границы объединённых ячеек по весу и росту — сверить.","nvnote_be":"Межы аб'яднаных вочак па вазе і росце — звярыць."},
+      {"id":"nev","name":"Детский невролог","name_be":"Дзіцячы неўролаг","cells":["1*","1**","—","1","—","1"],"ref":"прил. 2 к № 174"},
+      {"id":"surg","name":"Детский хирург","name_be":"Дзіцячы хірург","cells":["—","1**","—","1","—","1"],"ref":"прил. 2 к № 174"},
+      {"id":"oft","name":"Офтальмолог","name_be":"Афтальмолаг","cells":["1*","1**","—","1","—","1"],"ref":"прил. 2 к № 174"},
+      {"id":"lor","name":"Оториноларинголог","name_be":"Атарыналарынголаг","cells":["—","—","—","1","—","1"],"ref":"прил. 2 к № 174"},
+      {"id":"stom","name":"Стоматолог-терапевт","name_be":"Стаматолаг-тэрапеўт","cells":["1 раз в год","1 раз в год","1 раз в год","1 раз в год","1 раз в год","1 раз в год"],"ref":"прил. 2 к № 174"},
+      {"id":"gyn","name":"Акушер-гинеколог","name_be":"Акушар-гінеколаг","sex":"f","cells":["1*","1**","раз в год с 14 лет","1","1","1"],"ref":"прил. 2 к № 174"},
+      {"id":"defect","name":"Учитель-дефектолог","name_be":"Настаўнік-дэфектолаг","cells":["—","2***","—","—","—","—"],"ref":"прил. 2 к № 174"},
+      {"id":"oak","name":"Общий анализ крови","name_be":"Агульны аналіз крыві","cells":["1*","1**","—","1","—","1"],"ref":"прил. 2 к № 174"},
+      {"id":"oam","name":"Общий анализ мочи","name_be":"Агульны аналіз мачы","cells":["1*","1**","—","1","—","1"],"ref":"прил. 2 к № 174"},
+      {"id":"glu","name":"Глюкоза крови","name_be":"Глюкоза крыві","cells":["1*","1**","—","1","—","1"],"ref":"прил. 2 к № 174"},
+      {"id":"ecg","name":"ЭКГ","name_be":"ЭКГ","cells":["—","1**","в 10 лет","1","—","1"],"ref":"прил. 2 к № 174","onlyAge":10},
+      {"id":"flg","name":"Флюорография","name_be":"Флюараграфія","cells":["—","—","—","—","—","1"],"ref":"прил. 2 к № 174"},
+      {"id":"ad","name":"Измерение артериального давления","name_be":"Вымярэнне артэрыяльнага ціску","cells":["1 раз в год","1 раз в год","1 раз в год","1 раз в год","1 раз в год","1 раз в год"],"ref":"прил. 2 к № 174","nv":true,"nvnote":"Возрастные границы измерения АД — сверить.","nvnote_be":"Узроставыя межы вымярэння АЦ — звярыць."},
+      {"id":"vis","name":"Острота зрения","name_be":"Вастрыня зроку","cells":["—","раз в год (с 4 лет)","раз в год","раз в год","раз в год","раз в год"],"ref":"прил. 2 к № 174"},
+      {"id":"hear","name":"Острота слуха","name_be":"Вастрыня слыху","cells":["1*","1**","раз в год (с 11 лет)","раз в год","раз в год","раз в год"],"ref":"прил. 2 к № 174"},
+      {"id":"post","name":"Оценка осанки","name_be":"Ацэнка осанкі","cells":["—","раз в год (с 4 лет)","раз в год","раз в год","раз в год","раз в год"],"ref":"прил. 2 к № 174"},
+      {"id":"aut","name":"Скрининг на аутизм (модифицированный тест)","name_be":"Скрынінг на аўтызм (мадыфікаваны тэст)","cells":["2****","—","—","—","—","—"],"ref":"прил. 2 к № 174"}
+    ],
+    "footnotes": {
+      "*":"при оформлении в учреждение дошкольного образования",
+      "**":"при оформлении в учреждение общего среднего образования",
+      "***":"в 4 года и при оформлении в школу",
+      "****":"в 18 и 24 месяца"
+    },
+    "footnotes_be": {
+      "*":"пры афармленні ва ўстанову дашкольнай адукацыі",
+      "**":"пры афармленні ва ўстанову агульнай сярэдняй адукацыі",
+      "***":"у 4 гады і пры афармленні ў школу",
+      "****":"у 18 і 24 месяцы"
+    }
+  },
+  "risk": [
+    {"id":"r1","title":"1. Факторы риска со стороны ЦНС","title_be":"1. Фактары рызыкі з боку ЦНС","removal":"1 год","removal_be":"1 год","extra":["Детский невролог: не менее 1 раза до 2 мес., в 6 и 12 мес.","УЗИ головного мозга: 1 раз"],"extra_be":["Дзіцячы неўролаг: не менш за 1 раз да 2 мес., у 6 і 12 мес.","УЛД галаўнога мозгу: 1 раз"],"ref":"прил. 3 к № 174"},
+    {"id":"r2","title":"2. Внутриутробные инфекции","title_be":"2. Унутрычарэўныя інфекцыі","removal":"3 мес.","removal_be":"3 мес.","extra":["ОАК и ОАМ: в 1 и 3 мес."],"extra_be":["ААК і ААМ: у 1 і 3 мес."],"ref":"прил. 3 к № 174"},
+    {"id":"r3","title":"3. Анемии","title_be":"3. Анеміі","removal":"1 год","removal_be":"1 год","extra":["ОАК с ретикулоцитами: в 1, 3 и 6 мес."],"extra_be":["ААК з рэтыкулацытамі: у 1, 3 і 6 мес."],"ref":"прил. 3 к № 174"},
+    {"id":"r4","title":"4. Синдром внезапной смерти","title_be":"4. Сіндром раптоўнай смерці","removal":"1 год","removal_be":"1 год","extra":["Педиатр: 1 раз в месяц","ЭКГ: в 1, 3, 6, 9 и 12 мес."],"extra_be":["Педыятр: 1 раз у месяц","ЭКГ: у 1, 3, 6, 9 і 12 мес."],"ref":"прил. 3 к № 174"}
+  ],
+  "healthGroups": [
+    {"id":"I","text":"здоровые дети","text_be":"здаровыя дзеці"},
+    {"id":"II","text":"дети без хронических заболеваний, но с функциональными отклонениями или факторами риска","text_be":"дзеці без хранічных захворванняў, але з функцыянальнымі адхіленнямі або фактарамі рызыкі"},
+    {"id":"III","text":"дети с хроническими заболеваниями в стадии компенсации","text_be":"дзеці з хранічнымі захворваннямі ў стадыі кампенсацыі"},
+    {"id":"IV","text":"дети с хроническими заболеваниями в стадии декомпенсации, дети с инвалидностью","text_be":"дзеці з хранічнымі захворваннямі ў стадыі дэкампенсацыі, дзеці з інваліднасцю"}
+  ],
+  "checklist": [
+    {"t":"Сформирован список детей, которым диспансеризация показана в текущем месяце (проводится преимущественно в месяц рождения ребёнка)","t_be":"Сфарміраваны спіс дзяцей, якім дыспансерызацыя паказана ў бягучым месяцы (праводзіцца пераважна ў месяц нараджэння дзіцяці)","ref":"п. 8, прил. 2 № 174"},
+    {"t":"У детей до 1 года проверены факторы риска и при их наличии применена схема приложения 3","t_be":"У дзяцей да 1 года правераны фактары рызыкі і пры іх наяўнасці прыменена схема дадатка 3","ref":"п. 8, прил. 3 № 174"},
+    {"t":"Осмотры и исследования выполнены в объёме приложения 1 (до 1 года) или приложения 2 (1–17 лет)","t_be":"Агляды і даследаванні выкананы ў аб'ёме дадатка 1 (да 1 года) або дадатка 2 (1–17 гадоў)","ref":"п. 8, прил. 1–2 № 174"},
+    {"t":"Определена группа здоровья (I–IV) по критериям пункта 9.1","t_be":"Вызначана група здароўя (I–IV) па крытэрах пункта 9.1","ref":"п. 9.1 № 174"},
+    {"t":"Заполнена карта учёта по форме 3/у-ДР, в том числе допускается электронный вид","t_be":"Запоўнена карта ўліку па форме 3/у-ДР, у тым ліку дапускаецца электронны выгляд","ref":"п. 13, прил. 4 № 174"},
+    {"t":"Родители (законные представители) информированы о результатах и рекомендациях","t_be":"Бацькі (законныя прадстаўнікі) інфармаваны пра вынікі і рэкамендацыі","ref":"п. 8 № 174"},
+    {"t":"Подготовлены сведения для расчёта охвата (прошли / подлежат), плановое значение для детей — не менее 95 % в год","t_be":"Падрыхтаваны звесткі для разліку ахопу (прайшлі / падлягаюць), планавае значэнне для дзяцей — не менш за 95 % у год","ref":"п. 15 № 174"}
+  ],
+  "verify": [
+    "п. 5 Инструкции № 173 — точная формулировка групп, кратности и длительности (1 или 2 рабочих дня)",
+    "Вся схема обследований взрослых — вторичный источник: сверить с приложением 1 к № 173 в редакции № 13",
+    "ПСА: 50–65 лет либо 45–65 лет — в источниках расхождение",
+    "Анализ кала на скрытую кровь (50, 57, 64 года) — есть лишь в одном источнике; до сверки на сайте не показан как норматив",
+    "Прил. 2 к № 174 — границы объединённых ячеек «2 раза в год / 1 раз в год» для педиатра (ВОП), веса и роста",
+    "Прил. 2 к № 174 — возрастные границы измерения артериального давления",
+    "Прил. 4 к № 174 — структура граф карты 3/у-ДР",
+    "п. 8 № 174 — порядок проведения детской диспансеризации (формулировки чек-листа)",
+    "п. 9.1 № 174 — дословные критерии групп здоровья I–IV",
+    "Прил. 3 к № 174 — полные перечни факторов риска внутри групп",
+    "№ 173 — критерии охвата диспансеризацией для взрослых",
+    "Трудовой кодекс РБ — точная формулировка о времени и гарантиях для прохождения диспансеризации",
+    "Постановление от 21.08.2025 № 87 — состав форм справок и выписок"
+  ],
+  "verify_be": [
+    "п. 5 Інструкцыі № 173 — дакладная фармулёўка груп, кратнасці і працягласці (1 або 2 працоўныя дні)",
+    "Уся схема абследаванняў дарослых — другасная крыніца: звярыць з дадаткам 1 да № 173 у рэдакцыі № 13",
+    "ПСА: 50–65 гадоў або 45–65 гадоў — у крыніцах рознагалоссі",
+    "Аналіз кала на схаваную кроў (50, 57, 64 гады) — ёсць толькі ў адной крыніцы; да звярэння на сайце не паказаны як нарматыў",
+    "Дад. 2 да № 174 — межы аб'яднаных вочак «2 разы на год / 1 раз на год» для педыятра (УАП), вагі і росту",
+    "Дад. 2 да № 174 — узроставыя межы вымярэння артэрыяльнага ціску",
+    "Дад. 4 да № 174 — структура граф карты 3/у-ДР",
+    "п. 8 № 174 — парадак правядзення дзіцячай дыспансерызацыі (фармулёўкі чэк-ліста)",
+    "п. 9.1 № 174 — дакладныя крытэрыі груп здароўя I–IV",
+    "Дад. 3 да № 174 — поўныя пералікі фактараў рызыкі ўнутры груп",
+    "№ 173 — крытэрыі ахопу дыспансерызацыяй для дарослых",
+    "Працоўны кодэкс РБ — дакладная фармулёўка пра час і гарантыі для праходжання дыспансерызацыі",
+    "Пастанова ад 21.08.2025 № 87 — склад формаў даведак і выписак"
+  ]
+}
+</script>
+<script>
+'use strict';
+/* ================= УТИЛИТЫ ================= */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DATA=JSON.parse(document.getElementById('data').textContent);
+
+/* ================= I18N ================= */
+const I18N={
+ru:{
+skip:"Перейти к содержанию",brand_aria:"Диспансеризация в Беларуси — на главную",brand1:"Диспансеризация",brand2:"в Беларуси · справочник",
+nav_aria:"Разделы сайта",nav_adult:"Мне",nav_child:"Моему ребёнку",nav_pro:"Медработникам",nav_faq:"Вопросы",nav_docs:"Документы",
+search_ph:"Поиск по сайту…",search_aria:"Поиск по сайту",eye_aria:"Версия для слабовидящих",eye_lbl:"Для слабовидящих",
+theme_aria_dark:"Включить тёмную тему",theme_aria_light:"Включить светлую тему",lang_aria:"Переключить язык интерфейса",
+hero_kicker:"Справочник по постановлениям Минздрава от 16.12.2024 № 173 и № 174 (ред. № 13)",
+hero_title:"Диспансеризация в Беларуси: что, когда и где",
+hero_lead:"Бесплатные профилактические обследования для взрослых и детей. Выберите возраст на линии — покажем, какие осмотры предусмотрены, а ниже можно собрать точный маршрут для себя или ребёнка.",
+tl_title:"Линия возрастов",tl_age:"Возраст:",tl_dob:"Дата рождения",tl_range:"или возраст, лет",tl_range_aria:"Возраст, лет",
+tl_hint:"Двигайте ползунок, укажите дату или нажмите точку на линии",tl_b1:"Дети 0–17",tl_b3:"40 и старше",
+cta_me:"Мне",cta_child:"Моему ребёнку",cta_pro:"Для медработников",
+year_f:["год","года","лет"],month_f:["месяц","месяца","месяцев"],day_f:["рабочий день","рабочих дня","рабочих дней"],
+chip1:"до года: педиатр ежемесячно",chip2:"3–6 лет: осмотры 1 раз в год",chip3:"поступление в школу: осмотры и анализы (**)",chip4:"ЭКГ в 10 лет",
+chip5:"15 лет: невролог, хирург, ЛОР, анализы",chip6:"17 лет: флюорография",chip7:"18–39: раз в 3 года",chip8:"40+: ежегодно",
+chip9:"49–58: маммография",chip10:"50–65: ПСА для мужчин",
+pl_u1_t:"До 1 года",pl_u1_d:"Осмотры педиатра каждый месяц, патронаж медсестры, невролог и хирург в 1–3 мес., анализы, ЭКГ, аудиологическое исследование.",
+pl_child_t:"{age} {unit} — детская схема",pl_child_d:"В этом возрасте по приложению 2 предусмотрено:",pl_child_more:"и другие позиции.",
+pl_open_child:"Открыть полную схему ребёнка",pl_open_adult:"Собрать точный маршрут",
+pl_a1_t:"18–39 лет",pl_a1_d:"Диспансеризация 1 раз в 3 года, занимает 1 рабочий день: анализы, ЭКГ, обследование органов грудной клетки, осмотр врача общей практики; по возрасту — ПАП-тест для женщин и другие исследования.",
+pl_a2_t:"40 лет и старше",pl_a2_d:"Диспансеризация ежегодно. Длительность — 1 рабочий день, а за 5 лет до общеустановленного пенсионного возраста и после его достижения — 2 рабочих дня.",
+pl_src:"Источник:",
+a_kick:"Инструкция № 173 · взрослые с 18 лет",a_title:"Мой маршрут: что мне нужно пройти",
+a_lead:"Ответьте на три вопроса — соберём перечень обследований именно для вашего возраста. Данные не отправляются и не сохраняются: расчёт выполняется в вашем браузере.",
+a_sex:"Пол",a_sex_f:"Женский",a_sex_m:"Мужской",a_dob:"Дата рождения",
+a_dob_hint:"Например: 12.04.1985. Дату видите только вы — она никуда не отправляется.",
+a_pen:"Вы достигли общеустановленного пенсионного возраста или до него осталось не более 5 лет?",
+yes:"Да",no:"Нет",
+a_pen_hint:"От ответа зависит длительность: в этот период диспансеризация занимает 2 рабочих дня. Если сомневаетесь, ответьте «нет» — перечень обследований не изменится.",
+a_go:"Показать мой маршрут",a_priv_t:"Ничего не сохраняется: ни дата рождения, ни ответы.",
+a_empty_t:"Здесь появится ваш маршрут",
+a_empty:"Заполните форму слева — покажем группу (18–39 лет или 40+), как часто проходить диспансеризацию, сколько она займёт времени и какие исследования вам положены, со ссылками на пункты Инструкции № 173.",
+r_a_title:"Ваш маршрут",r_age:"Возраст",r_group:"Группа",r_freq:"Как часто",r_days:"Длительность",
+r_tbl_e:"Исследование",r_tbl_f:"Как часто",r_tbl_s:"Источник",
+r_vf_note:"Перечень собран по вторичному источнику — сверьте кратность и возрастные границы с приложением 1 к постановлению № 173 в редакции № 13. Периодичность и длительность — п. 5 Инструкции № 173 (формулировку сверить с текстом).",
+r_print:"Распечатать памятку",
+err_need_sex:"Укажите пол — от него зависят отдельные исследования (например, ПСА или маммография).",
+err_need_dob:"Укажите дату рождения — без неё маршрут не построить. Например: 12.04.1985.",
+err_need_pen:"Ответьте на вопрос о пенсионном возрасте — от этого зависит длительность: 1 или 2 рабочих дня.",
+err_future:"Дата рождения получилась в будущем. Проверьте год — возможно, опечатка.",
+err_toohigh:"Возраст получился больше 110 лет — проверьте год рождения: похоже на опечатку.",
+err_minor:"Диспансеризация взрослых по Инструкции № 173 начинается с 18 лет.",
+err_minor_go:"Открыть раздел «Диспансеризация ребёнка»",
+memo_t:"Памятка: что мне нужно пройти",memo_sex:"Пол",sex_f:"женский",sex_m:"мужской",
+memo_note:"Справочно. Не ставит диагнозов и не заменяет консультацию врача. Позиции с меткой «сверить» проверьте по официальному тексту.",
+c_kick:"Инструкция № 174 · дети от рождения до 17 лет",c_title:"Диспансеризация ребёнка",
+c_lead:"Укажите дату рождения и пол ребёнка — покажем возрастную группу, перечень осмотров и исследований по приложениям 1–3 к Инструкции № 174.",
+c_dob:"Дата рождения ребёнка",c_sex:"Пол ребёнка",c_girl:"Девочка",c_boy:"Мальчик",
+c_risk:"Есть факторы риска (для детей до 1 года)",c_risk_g:"Группа факторов риска (приложение 3)",
+c_risk_hint:"Факторы риска устанавливает врач. Если галочка стоит, добавим схему дополнительного наблюдения из приложения 3.",
+c_go:"Показать схему",c_empty_t:"Здесь появится схема для ребёнка",
+c_empty:"Для детей до года — помесячный график по приложению 1, для детей 1–17 лет — таблица по приложению 2 с пояснениями сносок. Напомним и про месяц рождения: детскую диспансеризацию проводят преимущественно в нём.",
+r_c_title:"Схема для ребёнка",r_who:"Кто / что",r_when:"Когда и как часто",
+r_reminder:"Диспансеризацию ребёнка проводят преимущественно в месяц рождения ребёнка.",
+r_footn_t:"Сноски:",r_risk_t:"Дополнительное наблюдение при факторах риска (приложение 3):",
+r_risk_off:"Снятие с наблюдения:",r_risk_choose:"Выберите группу факторов риска в форме — покажем схему дополнительного наблюдения.",
+r_risk_adult_note:"Факторы риска по приложению 3 относятся к детям до 1 года.",
+r_risk_none:"Группа факторов риска не выбрана",r_sel_ph:"— выберите группу —",
+err_adult:"С 18 лет действует Инструкция № 173 для взрослых.",err_adult_go:"Открыть «Мой маршрут»",
+p_kick:"Амбулаторно-поликлинические организации",p_title:"Для медработника",
+p_lead:"Рабочие инструменты по Инструкции № 174: чек-лист проведения, группы здоровья, карта 3/у-ДР, калькулятор охвата и справочник факторов риска.",
+p_tabs_aria:"Инструменты медработника",p_t1:"Чек-лист проведения",p_t2:"Группы здоровья I–IV",p_t3:"Карта 3/у-ДР",p_t4:"Калькулятор охвата",p_t5:"Факторы риска до 1 года",
+p_cl_lead:"Последовательность по пункту 8 Инструкции № 174. Отмечайте выполненное — состояние не сохраняется и очищается при перезагрузке страницы.",
+p_cl_vf:"Формулировки шагов сверьте с текстом пункта 8 Инструкции № 174 в редакции № 13.",p_cl_reset:"Сбросить отметки",
+cl_done:"Выполнено {n} из {m}",
+p_hg_lead:"По итогам диспансеризации детей распределяют на группы здоровья (пункт 9.1 Инструкции № 174):",
+p_hg_vf:"Дословные критерии групп сверьте с текстом пункта 9.1. Решение о группе здоровья принимает врач — блок справочный.",
+hg_prefix:"Группа",
+p_card_lead:"Рабочий черновик карты учёта по форме 3/у-ДР (приложение 4 к № 174). Электронный вид допускается (пункт 13). Заполняется в браузере: данные не отправляются, не сохраняются и очищаются кнопкой «Очистить».",
+p_card_vf:"Структуру граф официальной формы сверьте с приложением 4 к постановлению № 174.",
+k_fio:"Фамилия, имя, отчество ребёнка",k_dob:"Дата рождения",k_sex:"Пол",k_sex0:"—",k_sex_f:"Женский",k_sex_m:"Мужской",
+k_addr:"Место жительства",k_date:"Дата проведения диспансеризации",k_group:"Группа здоровья (I–IV)",k_group0:"—",
+k_find:"Выявленные отклонения",k_rec:"Рекомендации",k_doc:"Врач (ФИО, подпись)",k_print:"Печать карты",k_clear:"Очистить",
+k_print_t:"Карта учёта диспансеризации ребёнка (форма 3/у-ДР) — черновик",
+k_print_note:"Электронный вид допускается (п. 13 Инструкции № 174). Структуру граф сверьте с приложением 4 к № 174.",
+p_cov_lead:"Охват считается по формуле: (прошли ÷ подлежат) × 100 %. Для детей 0–17 лет плановое значение — не менее 95 % в год (пункт 15 Инструкции № 174).",
+cov_due:"Подлежат диспансеризации, чел.",cov_done:"Прошли диспансеризацию, чел.",cov_who:"Категория",
+cov_child:"Дети 0–17 лет",cov_adult:"Взрослые",cov_go:"Рассчитать охват",cov_res:"Охват: {p} %",
+cov_ok:"Не ниже планового значения 95 % в год для детей (п. 15 Инструкции № 174).",
+cov_low:"Ниже планового значения 95 % в год для детей (п. 15 Инструкции № 174).",
+cov_adult_note:"Плановое значение для взрослых — уточните в тексте Инструкции № 173.",
+cov_err:"Проверьте цифры: «прошли» не может быть больше «подлежат». Введите целые числа от 0 и выше.",
+p_cov_vf:"Критерии охвата для взрослых сверьте с текстом Инструкции № 173 — в приложенных материалах они отсутствуют.",
+p_risk_lead:"Группы факторов риска у детей до 1 года, дополнительное наблюдение и сроки снятия с наблюдения (приложение 3 к № 174):",
+p_risk_vf:"Полные перечни факторов внутри групп сверьте с текстом приложения 3 к постановлению № 174.",
+f_title:"Частые вопросы",
+f1_q:"Где проходить диспансеризацию?",f1_a:"В вашей амбулаторно-поликлинической организации (поликлинике по месту жительства или обслуживания). Детей обследуют преимущественно в месяц рождения. Точный порядок записи уточните в регистратуре или у участкового врача.",
+f2_q:"Что делать, если при диспансеризации что-то выявят?",f2_a:"Диспансеризация — профилактическое мероприятие: она помогает вовремя заметить отклонения. При выявлении заболевания медицинскую помощь оказывает врач-специалист по клиническим протоколам. Направление выпишет врач общей практики или педиатр.",
+f3_q:"Какие справки и выписки я получу?",f3_a:"По итогам оформляются учётные формы, предусмотренные постановлением Минздрава от 21.08.2025 № 87 (для детей — в том числе карта по форме 3/у-ДР, приложение 4 к № 174).",
+f3_vf:"Состав и вид форм сверьте с текстом постановления № 87.",
+f4_q:"Положен ли оплачиваемый выходной на диспансеризацию?",f4_a:"Трудовое законодательство предусматривает для работающих граждан время на прохождение медицинских осмотров и диспансеризации. Порядок и гарантии устанавливает Трудовой кодекс Республики Беларусь.",
+f4_vf:"Точную формулировку нормы возьмите из действующего текста Трудового кодекса на pravo.by — не полагайтесь на пересказ, включая этот.",
+f5_q:"Что означает метка «сверить» на этом сайте?",f5_a:"Так мы помечаем позиции, для которых в приложенных материалах был вторичный источник либо неоднозначная формулировка. Прежде чем опираться на них, сверьте с официальным текстом постановления на etalonline.by или pravo.by — ссылки есть в разделе «Документы».",
+d_title:"Тексты документов и источники",d_lead:"Нормативная база сайта. Официальные тексты — на порталах etalonline.by и pravo.by; ищите документ по номеру постановления.",
+d_a1_t:"Постановление Минздрава от 16.12.2024 № 173",d_a1_d:"Инструкция о порядке проведения диспансеризации взрослого населения. Действует с 01.01.2025; заменила постановление от 30.08.2023 № 125.",
+d_red:"Редакция: постановление Минздрава от 26.02.2026 № 13 (в силе с 23.05.2026).",
+d_a2_t:"Постановление Минздрава от 16.12.2024 № 174",d_a2_d:"Инструкция о порядке проведения диспансеризации детского населения. Действует с 01.01.2025.",d_red2:"Редакция: постановление Минздрава от 26.02.2026 № 13 (в силе с 23.05.2026).",
+d_hist_t:"Источники и изменения",
+d_h1:"Постановление № 125 — прежний порядок диспансеризации взрослых (утратило силу).",
+d_h2:"Постановления № 173 (взрослые) и № 174 (дети). Действуют с 01.01.2025.",
+d_h3:"Постановление № 87 — формы справок и выписок по итогам диспансеризации.",
+d_h4:"Постановление № 13 — изменения в № 173 и № 174. В силе с 23.05.2026.",
+d_reg_t:"Что нужно сверить с официальными текстами",
+d_reg_lead:"Эти позиции получены из вторичного источника или требуют дословной сверки. На сайте они помечены янтарной меткой «сверить».",
+ft_disc:"Сайт справочный: он не ставит диагнозы и не назначает лечение. По вопросам здоровья обращайтесь к врачу. Сайт не является официальным изданием правовых актов.",
+ft_1_t:"Нормативная база",ft_1_d:"Постановления Минздрава от 16.12.2024 № 173 и № 174, в редакции постановления от 26.02.2026 № 13 (в силе с 23.05.2026). Информация актуализирована: 23.05.2026.",
+ft_2_t:"Официальные источники",ft_3_t:"Приватность",
+ft_3_d:"Вся логика работает в браузере. Дата рождения, пол и содержимое карты 3/у-ДР не отправляются, не сохраняются и не логируются; трекеров и аналитики нет. Локально хранятся только настройки темы, языка и шрифта. Обработка персональных данных в организациях здравоохранения регулируется Законом РБ от 07.05.2021 № 99-З «О защите персональных данных».",
+ft_b1:"Диспансеризация в Беларуси — независимый справочник",ft_b2:"Сверяйте с официальными текстами: etalonline.by · pravo.by",
+vf_badge:"сверить",vf_title:"Требует сверки с официальным текстом",vf_ask:"Уточните в вашей поликлинике",
+sr_none:"Ничего не найдено. Попробуйте: «маммография», «ЭКГ», «охват».",sr_found:"Найдено: {n}",
+srk_section:"Раздел",srk_tool:"Инструмент",srk_faq:"Вопрос",srk_doc:"Документы",
+tp_t:"Встроенный самотест:",tp_ok:"все проверки пройдены",tp_bad:"есть ошибки — подробности в консоли"
+},
+be:{
+skip:"Перайсці да змесціва",brand_aria:"Дыспансерызацыя ў Беларусі — на галоўную",brand1:"Дыспансерызацыя",brand2:"ў Беларусі · даведнік",
+nav_aria:"Раздзелы сайта",nav_adult:"Мне",nav_child:"Майму дзіцяці",nav_pro:"Медработнікам",nav_faq:"Пытанні",nav_docs:"Дакументы",
+search_ph:"Пошук па сайце…",search_aria:"Пошук па сайце",eye_aria:"Версія для слабавідушчых",eye_lbl:"Для слабавідушчых",
+theme_aria_dark:"Уключыць цёмную тэму",theme_aria_light:"Уключыць светлую тэму",lang_aria:"Пераключыць мову інтэрфейсу",
+hero_kicker:"Даведнік па пастановах Мінздароўя ад 16.12.2024 № 173 і № 174 (рэд. № 13)",
+hero_title:"Дыспансерызацыя ў Беларусі: што, калі і дзе",
+hero_lead:"Бясплатныя прафілактычныя абследаванні для дарослых і дзяцей. Выберыце ўзрост на лініі — пакажам, якія агляды прадугледжаны, а ніжэй можна сабраць дакладны маршрут для сябе або дзіцяці.",
+tl_title:"Лінія ўзросту",tl_age:"Узрост:",tl_dob:"Дата нараджэння",tl_range:"або ўзрост, гадоў",tl_range_aria:"Узрост, гадоў",
+tl_hint:"Рухайце паўзунок, пазначце дату або націсніце кропку на лініі",tl_b1:"Дзеці 0–17",tl_b3:"40 і старэй",
+cta_me:"Мне",cta_child:"Майму дзіцяці",cta_pro:"Для медработнікаў",
+year_f:["год","гады","гадоў"],month_f:["месяц","месяцы","месяцаў"],day_f:["працоўны дзень","працоўныя дні","працоўных дзён"],
+chip1:"да года: педыятр штомесяц",chip2:"3–6 гадоў: агляды 1 раз на год",chip3:"паступленне ў школу: агляды і аналізы (**)",chip4:"ЭКГ у 10 гадоў",
+chip5:"15 гадоў: неўролаг, хірург, ЛОР, аналізы",chip6:"17 гадоў: флюараграфія",chip7:"18–39: раз на 3 гады",chip8:"40+: штогод",
+chip9:"49–58: мамаграфія",chip10:"50–65: ПСА для мужчын",
+pl_u1_t:"Да 1 года",pl_u1_d:"Агляды педыятра кожны месяц, патранаж медсястры, неўролаг і хірург у 1–3 мес., аналізы, ЭКГ, аўдыялагічнае даследаванне.",
+pl_child_t:"{age} {unit} — дзіцячая схема",pl_child_d:"У гэтым узросце па дадатку 2 прадугледжана:",pl_child_more:"і іншыя пазіцыі.",
+pl_open_child:"Адкрыць поўную схему дзіцяці",pl_open_adult:"Сабраць дакладны маршрут",
+pl_a1_t:"18–39 гадоў",pl_a1_d:"Дыспансерызацыя 1 раз на 3 гады, займае 1 працоўны дзень: аналізы, ЭКГ, абследаванне органаў грудной клеткі, агляд урача агульнай практыкі; па ўзросце — ПАП-тэст для жанчын і іншыя даследаванні.",
+pl_a2_t:"40 гадоў і старэй",pl_a2_d:"Дыспансерызацыя штогод. Працягласць — 1 працоўны дзень, а за 5 гадоў да агульнаўстаноўленага пенсійнага ўзросту і пасля яго дасягнення — 2 працоўныя дні.",
+pl_src:"Крыніца:",
+a_kick:"Інструкцыя № 173 · дарослыя з 18 гадоў",a_title:"Мой маршрут: што мне трэба прайсці",
+a_lead:"Дайце адказ на тры пытанні — збяром пералік абследаванняў менавіта для вашага ўзросту. Даныя не адпраўляюцца і не захоўваюцца: разлік выконваецца ў вашым браўзеры.",
+a_sex:"Пол",a_sex_f:"Жаночы",a_sex_m:"Мужчынскі",a_dob:"Дата нараджэння",
+a_dob_hint:"Напрыклад: 12.04.1985. Дату бачыце толькі вы — яна нікуды не адпраўляецца.",
+a_pen:"Вы дасягнулі агульнаўстаноўленага пенсійнага ўзросту або да яго засталося не больш за 5 гадоў?",
+yes:"Так",no:"Не",
+a_pen_hint:"Ад адказу залежыць працягласць: у гэты перыяд дыспансерызацыя займае 2 працоўныя дні. Калі сумняваецеся, адкажыце «не» — пералік абследаванняў не зменіцца.",
+a_go:"Паказаць мой маршрут",a_priv_t:"Нічога не захоўваецца: ні дата нараджэння, ні адказы.",
+a_empty_t:"Тут з'явіцца ваш маршрут",
+a_empty:"Запоўніце форму злева — пакажам групу (18–39 гадоў або 40+), як часта праходзіць дыспансерызацыю, колькі яна зойме часу і якія даследаванні вам належаць, са спасылкамі на пункты Інструкцыі № 173.",
+r_a_title:"Ваш маршрут",r_age:"Узрост",r_group:"Група",r_freq:"Як часта",r_days:"Працягласць",
+r_tbl_e:"Даследаванне",r_tbl_f:"Як часта",r_tbl_s:"Крыніца",
+r_vf_note:"Пералік сабраны па другаснай крыніцы — звярце кратнасць і ўзроставыя межы з дадаткам 1 да пастановы № 173 у рэдакцыі № 13. Перыядычнасць і працягласць — п. 5 Інструкцыі № 173 (фармулёўку звярыць з тэкстам).",
+r_print:"Расдрукаваць памятку",
+err_need_sex:"Пазначце пол — ад яго залежаць асобныя даследаванні (напрыклад, ПСА або мамаграфія).",
+err_need_dob:"Пазначце дату нараджэння — без яе маршрут не пабудаваць. Напрыклад: 12.04.1985.",
+err_need_pen:"Дайце адказ на пытанне пра пенсійны ўзрост — ад гэтага залежыць працягласць: 1 або 2 працоўныя дні.",
+err_future:"Дата нараджэння атрымалася ў будучыні. Праверце год — магчыма, памылка друку.",
+err_toohigh:"Узрост атрымаўся больш за 110 гадоў — праверце год нараджэння: падобна на памылку.",
+err_minor:"Дыспансерызацыя дарослых па Інструкцыі № 173 пачынаецца з 18 гадоў.",
+err_minor_go:"Адкрыць раздзел «Дыспансерызацыя дзіцяці»",
+memo_t:"Памятка: што мне трэба прайсці",memo_sex:"Пол",sex_f:"жаночы",sex_m:"мужчынскі",
+memo_note:"Даведачна. Не ставіць дыягназу і не замяняе кансультацыю ўрача. Пазіцыі з меткай «звярыць» праверце па афіцыйным тэксце.",
+c_kick:"Інструкцыя № 174 · дзеці ад нараджэння да 17 гадоў",c_title:"Дыспансерызацыя дзіцяці",
+c_lead:"Пазначце дату нараджэння і пол дзіцяці — пакажам узроставую групу, пералік аглядаў і даследаванняў па дадатках 1–3 да Інструкцыі № 174.",
+c_dob:"Дата нараджэння дзіцяці",c_sex:"Пол дзіцяці",c_girl:"Дзяўчынка",c_boy:"Хлопчык",
+c_risk:"Ёсць фактары рызыкі (для дзяцей да 1 года)",c_risk_g:"Група фактараў рызыкі (дадатак 3)",
+c_risk_hint:"Фактары рызыкі ўсталёўвае ўрач. Калі галачка стаіць, дадамо схему дадатковага назірання з дадатка 3.",
+c_go:"Паказаць схему",c_empty_t:"Тут з'явіцца схема для дзіцяці",
+c_empty:"Для дзяцей да года — памесячны графік па дадатку 1, для дзяцей 1–17 гадоў — табліца па дадатку 2 з тлумачэннямі сносак. Нагадаем і пра месяц нараджэння: дзіцячую дыспансерызацыю праводзяць пераважна ў ім.",
+r_c_title:"Схема для дзіцяці",r_who:"Хто / што",r_when:"Калі і як часта",
+r_reminder:"Дыспансерызацыю дзіцяці праводзяць пераважна ў месяц нараджэння дзіцяці.",
+r_footn_t:"Сноскі:",r_risk_t:"Дадатковае назіранне пры фактарах рызыкі (дадатак 3):",
+r_risk_off:"Зняцце з назірання:",r_risk_choose:"Выберыце групу фактараў рызыкі ў форме — пакажам схему дадатковага назірання.",
+r_risk_adult_note:"Фактары рызыкі па дадатку 3 адносяцца да дзяцей да 1 года.",
+r_risk_none:"Група фактараў рызыкі не выбрана",r_sel_ph:"— выберыце групу —",
+err_adult:"З 18 гадоў дзейнічае Інструкцыя № 173 для дарослых.",err_adult_go:"Адкрыць «Мой маршрут»",
+p_kick:"Амбулаторна-паліклінічныя арганізацыі",p_title:"Для медработніка",
+p_lead:"Рабочыя інструменты па Інструкцыі № 174: чэк-ліст правядзення, групы здароўя, карта 3/у-ДР, калькулятар ахопу і даведнік фактараў рызыкі.",
+p_tabs_aria:"Інструменты медработніка",p_t1:"Чэк-ліст правядзення",p_t2:"Групы здароўя I–IV",p_t3:"Карта 3/у-ДР",p_t4:"Калькулятар ахопу",p_t5:"Фактары рызыкі да 1 года",
+p_cl_lead:"Паслядоўнасць па пункце 8 Інструкцыі № 174. Адзначайце выкананае — стан не захоўваецца і ачышчаецца пры перазагрузцы старонкі.",
+p_cl_vf:"Фармулёўкі крокаў звярце з тэкстам пункта 8 Інструкцыі № 174 у рэдакцыі № 13.",p_cl_reset:"Скінуць адзнакі",
+cl_done:"Выканана {n} з {m}",
+p_hg_lead:"Па выніках дыспансерызацыі дзяцей размяркоўваюць на групы здароўя (пункт 9.1 Інструкцыі № 174):",
+p_hg_vf:"Дакладныя крытэрыі груп звярце з тэкстам пункта 9.1. Рашэнне пра групу здароўя прымае ўрач — блок даведачны.",
+hg_prefix:"Група",
+p_card_lead:"Рабочы чарнавік карты ўліку па форме 3/у-ДР (дадатак 4 да № 174). Электронны выгляд дапускаецца (пункт 13). Запаўняецца ў браўзеры: даныя не адпраўляюцца, не захоўваюцца і ачышчаюцца кнопкай «Ачысціць».",
+p_card_vf:"Структуру граф афіцыйнай формы звярце з дадаткам 4 да пастановы № 174.",
+k_fio:"Прозвішча, імя, імя па бацьку дзіцяці",k_dob:"Дата нараджэння",k_sex:"Пол",k_sex0:"—",k_sex_f:"Жаночы",k_sex_m:"Мужчынскі",
+k_addr:"Месца жыхарства",k_date:"Дата правядзення дыспансерызацыі",k_group:"Група здароўя (I–IV)",k_group0:"—",
+k_find:"Выяўленыя адхіленні",k_rec:"Рэкамендацыі",k_doc:"Урач (ПІБ, подпіс)",k_print:"Друк карты",k_clear:"Ачысціць",
+k_print_t:"Карта ўліку дыспансерызацыі дзіцяці (форма 3/у-ДР) — чарнавік",
+k_print_note:"Электронны выгляд дапускаецца (п. 13 Інструкцыі № 174). Структуру граф звярце з дадаткам 4 да № 174.",
+p_cov_lead:"Ахоп лічыцца па формуле: (прайшлі ÷ падлягаюць) × 100 %. Для дзяцей 0–17 гадоў планавае значэнне — не менш за 95 % у год (пункт 15 Інструкцыі № 174).",
+cov_due:"Падлягаюць дыспансерызацыі, чал.",cov_done:"Прайшлі дыспансерызацыю, чал.",cov_who:"Катэгорыя",
+cov_child:"Дзеці 0–17 гадоў",cov_adult:"Дарослыя",cov_go:"Разлічыць ахоп",cov_res:"Ахоп: {p} %",
+cov_ok:"Не ніжэй за планавае значэнне 95 % у год для дзяцей (п. 15 Інструкцыі № 174).",
+cov_low:"Ніжэй за планавае значэнне 95 % у год для дзяцей (п. 15 Інструкцыі № 174).",
+cov_adult_note:"Планавае значэнне для дарослых — удакладніце ў тэксце Інструкцыі № 173.",
+cov_err:"Праверце лічбы: «прайшлі» не можа быць больш за «падлягаюць». Увядзіце цэлыя лікі ад 0 і вышэй.",
+p_cov_vf:"Крытэрыі ахопу для дарослых звярце з тэкстам Інструкцыі № 173 — у прыкладзеных матэрыялах іх няма.",
+p_risk_lead:"Групы фактараў рызыкі ў дзяцей да 1 года, дадатковае назіранне і тэрміны зняцця з назірання (дадатак 3 да № 174):",
+p_risk_vf:"Поўныя пералікі фактараў унутры груп звярце з тэкстам дадатка 3 да пастановы № 174.",
+f_title:"Частыя пытанні",
+f1_q:"Дзе праходзіць дыспансерызацыю?",f1_a:"У вашай амбулаторна-паліклінічнай арганізацыі (паліклініцы па месцы жыхарства або абслугоўвання). Дзяцей абследаюць пераважна ў месяц нараджэння. Дакладны парадак запісу ўдакладніце ў рэгістратуры або ў участковага ўрача.",
+f2_q:"Што рабіць, калі пры дыспансерызацыі што-небудзь выявяць?",f2_a:"Дыспансерызацыя — прафілактычны захад: яна дапамагае ўчасна заўважыць адхіленні. Пры выяўленні захворвання медыцынскую дапамогу аказвае ўрач-спецыяліст па клінічных пратаколах. Накіраванне выпіша ўрач агульнай практыкі або педыятр.",
+f3_q:"Якія даведкі і выпіскі я атрымаю?",f3_a:"Па выніках афармляюцца ўліковыя формы, прадугледжаныя пастановай Мінздароўя ад 21.08.2025 № 87 (для дзяцей — у тым ліку карта па форме 3/у-ДР, дадатак 4 да № 174).",
+f3_vf:"Склад і выгляд формаў звярце з тэкстам пастановы № 87.",
+f4_q:"Ці належыць аплочвальны выхадны на дыспансерызацыю?",f4_a:"Працоўнае заканадаўства прадугледжвае для працуючых грамадзян час на праходжанне медыцынскіх аглядаў і дыспансерызацыі. Парадак і гарантыі ўстанаўлівае Працоўны кодэкс Рэспублікі Беларусь.",
+f4_vf:"Дакладную фармулёўку нормы вазьміце з дзеючага тэксту Працоўнага кодэкса на pravo.by — не спадзявайцеся на пераказ, уключаючы гэты.",
+f5_q:"Што азначае метка «звярыць» на гэтым сайце?",f5_a:"Так мы адзначаем пазіцыі, для якіх у прыкладзеных матэрыялах была другасная крыніца або неадназначная фармулёўка. Перш чым аперацца на іх, звярце з афіцыйным тэкстам пастановы на etalonline.by або pravo.by — спасылкі ёсць у раздзеле «Дакументы».",
+d_title:"Тэксты дакументаў і крыніцы",d_lead:"Нарматыўная база сайта. Афіцыйныя тэксты — на парталах etalonline.by і pravo.by; шукайце дакумент па нумары пастановы.",
+d_a1_t:"Пастанова Мінздароўя ад 16.12.2024 № 173",d_a1_d:"Інструкцыя аб парадку правядзення дыспансерызацыі дарослага насельніцтва. Дзейнічае з 01.01.2025; замяніла пастанову ад 30.08.2023 № 125.",
+d_red:"Рэдакцыя: пастанова Мінздароўя ад 26.02.2026 № 13 (у сіле з 23.05.2026).",
+d_a2_t:"Пастанова Мінздароўя ад 16.12.2024 № 174",d_a2_d:"Інструкцыя аб парадку правядзення дыспансерызацыі дзіцячага насельніцтва. Дзейнічае з 01.01.2025.",d_red2:"Рэдакцыя: пастанова Мінздароўя ад 26.02.2026 № 13 (у сіле з 23.05.2026).",
+d_hist_t:"Крыніцы і змены",
+d_h1:"Пастанова № 125 — ранейшы парадак дыспансерызацыі дарослых (страціла сілу).",
+d_h2:"Пастановы № 173 (дарослыя) і № 174 (дзеці). Дзейнічаюць з 01.01.2025.",
+d_h3:"Пастанова № 87 — формы даведак і выписак па выніках дыспансерызацыі.",
+d_h4:"Пастанова № 13 — змены ў № 173 і № 174. У сіле з 23.05.2026.",
+d_reg_t:"Што трэба звярыць з афіцыйнымі тэкстамі",
+d_reg_lead:"Гэтыя пазіцыі атрыманы з другаснай крыніцы або патрабуюць дакладнай звяркі. На сайце яны адзначаны янтарнай меткай «звярыць».",
+ft_disc:"Сайт даведачны: ён не ставіць дыягназу і не прызначае лячэнне. Па пытаннях здароўя звяртайцеся да ўрача. Сайт не з'яўляецца афіцыйным выданнем прававых актаў.",
+ft_1_t:"Нарматыўная база",ft_1_d:"Пастановы Мінздароўя ад 16.12.2024 № 173 і № 174, у рэдакцыі пастановы ад 26.02.2026 № 13 (у сіле з 23.05.2026). Інформацыя актуалізавана: 23.05.2026.",
+ft_2_t:"Афіцыйныя крыніцы",ft_3_t:"Прыватнасць",
+ft_3_d:"Уся логіка працуе ў браўзеры. Дата нараджэння, пол і змесціва карты 3/у-ДР не адпраўляюцца, не захоўваюцца і не логуюцца; трэкераў і аналітыкі няма. Лакальна захоўваюцца толькі налады тэмы, мовы і шрыфту. Апрацоўка персанальных даных у арганізацыях аховы здароўя рэгулюецца Законам РБ ад 07.05.2021 № 99-З «Аб абароне персанальных даных».",
+ft_b1:"Дыспансерызацыя ў Беларусі — незалежны даведнік",ft_b2:"Звярайце з афіцыйнымі тэкстамі: etalonline.by · pravo.by",
+vf_badge:"звярыць",vf_title:"Патрабуе звяркі з афіцыйным тэкстам",vf_ask:"Удакладніце ў вашай паліклініцы",
+sr_none:"Нічога не знойдзена. Паспрабуйце: «мамаграфія», «ЭКГ», «ахоп».",sr_found:"Знойдзена: {n}",
+srk_section:"Раздзел",srk_tool:"Інструмент",srk_faq:"Пытанне",srk_doc:"Дакументы",
+tp_t:"Убудаваны саматэст:",tp_ok:"усе праверкі пройдзены",tp_bad:"ёсць памылкі — падрабязнасці ў кансолі"
+}};
+let lang=document.documentElement.lang==='be'?'be':'ru';
+const T=()=>I18N[lang];
+const t=k=>T()[k]??I18N.ru[k]??k;
+const plural=(n,f)=>{const a=Math.abs(n)%100,b=a%10;return f[(a>10&&a<20)?2:(b>1&&b<5)?1:(b===1)?0:2];};
+const fill=(s,o)=>s.replace(/\{(\w+)\}/g,(_,k)=>o[k]??'');
+const pick=(o,b)=>lang==='be'?(o[b+'_be']??o[b]):o[b];
+const CELL_BE={"2 раза в год":"2 разы на год","1 раз в год":"1 раз на год","раз в год с 14 лет":"раз на год з 14 гадоў","в 10 лет":"у 10 гадоў","раз в год":"раз на год","раз в год (с 4 лет)":"раз на год (з 4 гадоў)","раз в год (с 11 лет)":"раз на год (з 11 гадоў)"};
+const cellL=c=>lang==='be'?(CELL_BE[c]||c):c;
+
+/* ================= ЧИСТЫЕ РАСЧЁТНЫЕ ФУНКЦИИ ================= */
+function parseDateVal(v){if(!v)return null;const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v);if(!m)return null;const d=new Date(+m[1],+m[2]-1,+m[3]);return(d.getFullYear()===+m[1]&&d.getMonth()===+m[2]-1&&d.getDate()===+m[3])?d:null;}
+function fullYears(dob,now){let y=now.getFullYear()-dob.getFullYear();const m=now.getMonth()-dob.getMonth();if(m<0||(m===0&&now.getDate()<dob.getDate()))y--;return y;}
+function fullMonths(dob,now){let m=(now.getFullYear()-dob.getFullYear())*12+(now.getMonth()-dob.getMonth());if(now.getDate()<dob.getDate())m--;return m;}
+/* Взрослые: sex 'f'|'m', dob Date, prePension bool, now Date */
+function calcAdult({sex,dob,prePension,now=new Date()}){
+  if(!sex)return{error:'need_sex'};
+  if(!dob)return{error:'need_dob'};
+  if(prePension===null||prePension===undefined)return{error:'need_pen'};
+  if(dob>now)return{error:'future'};
+  const age=fullYears(dob,now);
+  if(age<18)return{error:'minor',age};
+  if(age>110)return{error:'toohigh',age};
+  let group;
+  if(age<=39)group=DATA.adult.groups[0];
+  else group=prePension?DATA.adult.groups[2]:DATA.adult.groups[1];
+  const exams=DATA.adult.exams
+    .filter(e=>e.norm!==false&&(e.sex==='any'||e.sex===sex))
+    .map(e=>{const r=e.rules.find(r=>age>=r.from&&(r.to===null||r.to===undefined||age<=r.to));
+      return r?{id:e.id,name:e.name,name_be:e.name_be,per:r.per,per_be:r.per_be,ref:e.ref,nv:e.nv||false,nvnote:e.nvnote,nvnote_be:e.nvnote_be}:null;})
+    .filter(Boolean);
+  return{age,sex,prePension,group,exams};
+}
+/* Детские возрастные колонки: 0:1–2г,1:3–6л,2:7–14л,3:15л,4:16л,5:17л */
+function calcChild({sex,dob,riskId=null,now=new Date()}){
+  if(!dob)return{error:'need_dob'};
+  if(!sex)return{error:'need_sex'};
+  if(dob>now)return{error:'future'};
+  const months=fullMonths(dob,now),years=fullYears(dob,now);
+  if(years>=18)return{error:'adult',years};
+  if(months<=12){return{kind:'u1',months,sex,items:DATA.childU1.items,risk:riskId?DATA.risk.find(r=>r.id===riskId)||null:null,ref:DATA.childU1.ref};}
+  const col=years<=2?0:years<=6?1:years<=14?2:years===15?3:years===16?4:5;
+  const rows=DATA.child.rows
+    .filter(r=>!r.sex||r.sex===sex)
+    .map(r=>{let cell=r.cells[col];
+      if(r.onlyAge!=null&&col===2&&years!==r.onlyAge)cell='—';
+      return{id:r.id,name:r.name,name_be:r.name_be,cell,ref:r.ref,nv:r.nv||false,nvnote:r.nvnote,nvnote_be:r.nvnote_be};})
+    .filter(r=>r.cell&&r.cell!=='—');
+  const usedMarks=[...new Set(rows.flatMap(r=>[...(r.cell.match(/\*+/g)||[])]))].sort((a,b)=>a.length-b.length);
+  return{kind:'c1_17',years,col,months,sex,rows,usedMarks};
+}
+/* Охват */
+function calcCoverage(due,done){
+  if(!Number.isInteger(due)||!Number.isInteger(done)||due<0||done<0||done>due||due===0)return{error:true};
+  const p=done/due*100;
+  return{p,childOk:p>=95};
+}
+
+/* ================= ПРЕФС (только оформление) ================= */
+const PREFS_KEY='dsp-prefs';
+const loadPrefs=()=>{try{return JSON.parse(localStorage.getItem(PREFS_KEY)||'{}')}catch(e){return{}}};
+const savePrefs=p=>{try{localStorage.setItem(PREFS_KEY,JSON.stringify(p))}catch(e){}};
+
+/* ================= ТЕМА / ГЛАЗ / ЯЗЫК ================= */
+const htmlEl=document.documentElement;
+function effTheme(){return htmlEl.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
+function paintTheme(){const d=effTheme()==='dark';$('#theme-use').setAttribute('href',d?'#i-sun':'#i-moon');$('#theme-btn').setAttribute('aria-pressed',String(d));$('#theme-btn').setAttribute('aria-label',t(d?'theme_aria_light':'theme_aria_dark'));}
+$('#theme-btn').addEventListener('click',()=>{const p=loadPrefs();const nt=effTheme()==='dark'?'light':'dark';htmlEl.setAttribute('data-theme',nt);p.theme=nt;savePrefs(p);paintTheme();});
+function paintEye(){const on=htmlEl.classList.contains('eye');$('#eye-btn').setAttribute('aria-pressed',String(on));}
+$('#eye-btn').addEventListener('click',()=>{htmlEl.classList.toggle('eye');const p=loadPrefs();p.eye=htmlEl.classList.contains('eye');savePrefs(p);paintEye();});
+
+/* ================= ЯНТАРНАЯ МЕТКА «сверить» ================= */
+const vf=note=>`<span class="vf" role="note" title="${esc(t('vf_title'))}${note?' — '+esc(note):''}"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>${esc(t('vf_badge'))}</span>`;
+
+/* ================= ЛИНИЯ ВОЗРОСТОВ ================= */
+function ageToPct(a){a=Math.max(0,Math.min(80,a));return a<=17?a/17*34:34+(a-17)/63*66;}
+const TL_CHIPS=[[0.5,'chip1','#i-baby'],[3,'chip2'],[6.5,'chip3'],[10,'chip4'],[15,'chip5'],[17,'chip6'],[18,'chip7'],[40,'chip8'],[49,'chip9'],[50.8,'chip10']];
+let tlState={years:30,months:null};
+function renderChips(){
+  const ul=$('#tl-chips');ul.innerHTML='';
+  const rowsY=[6,46,86],occ=[[],[],[]];
+  const items=TL_CHIPS.map(([a,k,ic])=>({a,k,ic,p:ageToPct(a)})).sort((x,y)=>x.p-y.p);
+  for(const it of items){
+    let row=occ.findIndex(r=>r.every(p=>Math.abs(p-it.p)>6));
+    if(row<0)row=2;
+    occ[row].push(it.p);
+    const li=document.createElement('li');
+    li.style.left=it.p+'%';li.style.top=rowsY[row]+'px';
+    const b=document.createElement('button');b.type='button';
+    b.innerHTML=`<span class="dot" aria-hidden="true"></span><span>${esc(t(it.k))}</span>`;
+    b.setAttribute('aria-label',t(it.k));
+    b.addEventListener('click',()=>{if(it.a<1)setAge(0,6);else setAge(Math.round(it.a),null);$('#tl-range').focus();});
+    li.appendChild(b);ul.appendChild(li);
+  }
+}
+function panelHTML(){
+  const{years,months}=tlState;
+  const src=s=>`<span class="src">${esc(t('pl_src'))} ${esc(s)}</span>`;
+  if(months!==null&&months<=12){
+    return`<svg class="ic big" aria-hidden="true"><use href="#i-baby"/></svg><div><h3>${esc(t('pl_u1_t'))}</h3><p>${esc(t('pl_u1_d'))}</p>${src('прил. 1 к № 174')}<p><a href="#child" class="btn small ghost">${esc(t('pl_open_child'))}</a></p></div>`;
+  }
+  if(years<18){
+    const col=years<=2?0:years<=6?1:years<=14?2:years===15?3:years===16?4:5;
+    const rows=DATA.child.rows.filter(r=>!r.sex).map(r=>{let cell=r.cells[col];
+      if(r.onlyAge!=null&&col===2&&years!==r.onlyAge)cell='—';return{r,cell};}).filter(x=>x.cell&&x.cell!=='—');
+    const names=rows.slice(0,4).map(x=>pick(x.r,'name')).join('; ');
+    const more=rows.length>4?' '+t('pl_child_more'):'';
+    const unit=plural(years,t('year_f'));
+    return`<svg class="ic big" aria-hidden="true"><use href="#i-baby"/></svg><div><h3>${esc(fill(t('pl_child_t'),{age:years,unit}))}</h3><p>${esc(t('pl_child_d'))} ${esc(names)}${esc(more)}</p>${src('прил. 2 к № 174')}<p><a href="#child" class="btn small ghost">${esc(t('pl_open_child'))}</a></p></div>`;
+  }
+  const g40=years>=40;
+  return`<svg class="ic big" aria-hidden="true"><use href="#i-user"/></svg><div><h3>${esc(t(g40?'pl_a2_t':'pl_a1_t'))}</h3><p>${esc(t(g40?'pl_a2_d':'pl_a1_d'))}</p>${src('п. 5, прил. 1 к № 173')} ${vf()}<p><a href="#adult" class="btn small ghost">${esc(t('pl_open_adult'))}</a></p></div>`;
+}
+function paintAge(){
+  const{years,months}=tlState;
+  const baby=months!==null&&months<=12;
+  $('#tl-out').textContent=baby?months:years;
+  $('#tl-unit').textContent=baby?plural(months,t('month_f')):plural(years,t('year_f'));
+  $('#tl-caret').style.left=ageToPct(years)+'%';
+  $('#tl-range').value=years;
+  $('#tl-panel').innerHTML=panelHTML();
+}
+function setAge(y,months){tlState={years:Math.max(0,Math.min(80,y)),months};paintAge();}
+$('#tl-range').addEventListener('input',e=>{$('#tl-dob').value='';setAge(+e.target.value,null);});
+$('#tl-dob').addEventListener('change',e=>{
+  const d=parseDateVal(e.target.value);if(!d)return;
+  const now=new Date();if(d>now){setAge(0,0);return;}
+  const mo=fullMonths(d,now),y=fullYears(d,now);
+  setAge(y,mo<=12?mo:null);
+});
+(function initTl(){const iso=new Date();$('#tl-dob').max=iso.toISOString().slice(0,10);renderChips();paintAge();})();
+
+/* ================= ВЗРОСЛЫЙ МАРШРУТ ================= */
+let lastAdult=null;
+function errBox(msg,extra=''){return`<div class="err-box" role="alert"><p style="margin:0">${esc(msg)}</p>${extra}</div>`;}
+function renderAdult(res){
+  const box=$('#adult-result');
+  if(res.error){
+    const map={need_sex:'err_need_sex',need_dob:'err_need_dob',need_pen:'err_need_pen',future:'err_future',toohigh:'err_toohigh'};
+    if(res.error==='minor'){box.innerHTML=errBox(t('err_minor'),`<p style="margin:.5em 0 0"><a href="#child">${esc(t('err_minor_go'))}</a></p>`);}
+    else box.innerHTML=errBox(t(map[res.error]));
+    lastAdult=null;return;
+  }
+  lastAdult=res;
+  const g=res.group;
+  const rows=res.exams.map(e=>`<tr><td>${esc(pick(e,'name'))}${e.nv&&e.nvnote?' '+vf(pick(e,'nvnote')):''}</td><td>${esc(pick(e,'per'))}</td><td class="ref">${esc(e.ref)}${e.nv&&!e.nvnote?' '+vf():''}</td></tr>`).join('');
+  box.innerHTML=`
+  <div class="card" id="adult-memo">
+    <h3>${esc(t('r_a_title'))}</h3>
+    <div class="chips">
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>${esc(t('r_age'))}: ${res.age} ${esc(plural(res.age,t('year_f')))}</span>
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-clip"/></svg>${esc(t('r_group'))}: ${esc(pick(g,'label'))} ${vf()}</span>
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>${esc(t('r_freq'))}: ${esc(pick(g,'per'))}</span>
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>${esc(t('r_days'))}: ${g.days} ${esc(plural(g.days,t('day_f')))}</span>
+    </div>
+    <div class="tbl-wrap" role="region" aria-label="${esc(t('r_tbl_e'))}" tabindex="0">
+      <table><thead><tr><th>${esc(t('r_tbl_e'))}</th><th>${esc(t('r_tbl_f'))}</th><th>${esc(t('r_tbl_s'))}</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    </div>
+    <div class="vf-note"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>${esc(t('r_vf_note'))}</span></div>
+    <p style="margin:1rem 0 0"><button class="btn" type="button" id="adult-print"><svg class="ic" aria-hidden="true"><use href="#i-print"/></svg>${esc(t('r_print'))}</button></p>
+  </div>`;
+  $('#adult-print').addEventListener('click',printMemo);
+}
+$('#adult-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const sex=$('input[name="a-sex"]:checked')?.value||null;
+  const dob=parseDateVal($('#a-dob').value);
+  const penV=$('input[name="a-pen"]:checked')?.value;
+  renderAdult(calcAdult({sex,dob,prePension:penV===undefined?null:penV==='yes'}));
+});
+function printMemo(){
+  if(!lastAdult)return;
+  const r=lastAdult,g=r.group;
+  const rows=r.exams.map(e=>`<tr><td>${esc(pick(e,'name'))}${e.nv?' <b>['+esc(t('vf_badge'))+']</b>':''}</td><td>${esc(pick(e,'per'))}</td><td>${esc(e.ref)}</td></tr>`).join('');
+  $('#print-root').innerHTML=`
+    <h1>${esc(t('memo_t'))}</h1>
+    <p>${esc(t('memo_sex'))}: ${esc(t(r.sex==='f'?'sex_f':'sex_m'))} · ${esc(t('r_age'))}: ${r.age} · ${esc(t('r_group'))}: ${esc(pick(g,'label'))} · ${esc(t('r_freq'))}: ${esc(pick(g,'per'))} · ${esc(t('r_days'))}: ${g.days} ${esc(plural(g.days,t('day_f')))}</p>
+    <table border="1" cellspacing="0" cellpadding="6" style="border-collapse:collapse;width:100%"><thead><tr><th align="left">${esc(t('r_tbl_e'))}</th><th align="left">${esc(t('r_tbl_f'))}</th><th align="left">${esc(t('r_tbl_s'))}</th></tr></thead><tbody>${rows}</tbody></table>
+    <p class="meta">${esc(t('memo_note'))} ${esc(t('ft_1_d'))}</p>`;
+  document.body.classList.add('printing');window.print();
+}
+
+/* ================= РЕБЁНОК ================= */
+let lastChild=null;
+function riskSelectPaint(){
+  const sel=$('#c-risk-sel');
+  sel.innerHTML=`<option value="">${esc(t('r_sel_ph'))}</option>`+DATA.risk.map(r=>`<option value="${r.id}">${esc(pick(r,'title'))}</option>`).join('');
+}
+$('#c-risk').addEventListener('change',e=>{$('#c-risk-wrap').hidden=!e.target.checked;});
+function riskBlock(r){
+  if(!r)return`<p class="note">${esc(t('r_risk_choose'))}</p>`;
+  const extra=(lang==='be'?r.extra_be:r.extra).map(x=>`<li>${esc(x)}</li>`).join('');
+  return`<h4 style="margin:1.1rem 0 .3em">${esc(pick(r,'title'))}</h4>
+    <p style="margin:.2em 0"><strong>${esc(t('r_risk_off'))}</strong> ${esc(pick(r,'removal'))} <span class="ref">(${esc(r.ref)})</span></p>
+    <ul style="margin:.4em 0 0;padding-left:1.3em">${extra}</ul>`;
+}
+function renderChild(res){
+  const box=$('#child-result');
+  if(res.error){
+    const map={need_dob:'err_need_dob',need_sex:'err_need_sex',future:'err_future'};
+    if(res.error==='adult'){box.innerHTML=errBox(t('err_adult'),`<p style="margin:.5em 0 0"><a href="#adult">${esc(t('err_adult_go'))}</a></p>`);}
+    else box.innerHTML=errBox(t(map[res.error]));
+    lastChild=null;return;
+  }
+  lastChild=res;
+  if(res.kind==='u1'){
+    const rows=res.items.map(i=>`<tr><td>${esc(pick(i,'t'))}</td><td>${esc(pick(i,'p'))}</td></tr>`).join('');
+    const riskOn=$('#c-risk').checked;
+    box.innerHTML=`
+    <div class="card">
+      <h3>${esc(t('r_c_title'))} — ${esc(pick(DATA.childU1,'title'))}</h3>
+      <div class="chips"><span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-baby"/></svg>${res.months} ${esc(plural(res.months,t('month_f')))}</span>
+      <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg>${esc(res.ref)}</span></div>
+      <div class="tbl-wrap" role="region" aria-label="${esc(pick(DATA.childU1,'title'))}" tabindex="0">
+        <table><thead><tr><th>${esc(t('r_who'))}</th><th>${esc(t('r_when'))}</th></tr></thead><tbody>${rows}</tbody></table>
+      </div>
+      <div class="vf-note" style="background:var(--mint);border-color:var(--line-2)"><svg class="ic" style="color:var(--accent-bg)" aria-hidden="true"><use href="#i-cal"/></svg><span>${esc(t('r_reminder'))}</span></div>
+      ${riskOn?`<h3 style="margin:1.2rem 0 .3em">${esc(t('r_risk_t'))}</h3>${riskBlock(res.risk)}`:''}
+    </div>`;
+    return;
+  }
+  const colLabel=pick(DATA.child,'cols')[res.col];
+  const rows=res.rows.map(r=>{
+    let cell=cellL(r.cell).replace(/\*+/g,m=>`<sup>${m}</sup>`);
+    return`<tr><td>${esc(pick(r,'name'))}${r.nv?' '+vf(pick(r,'nvnote')):''}</td><td>${cell}</td><td class="ref">${esc(r.ref)}</td></tr>`;}).join('');
+  const fns=res.usedMarks.map(m=>`<li><sup>${m}</sup> ${esc((lang==='be'?DATA.child.footnotes_be:DATA.child.footnotes)[m])}</li>`).join('');
+  const riskOn=$('#c-risk').checked;
+  box.innerHTML=`
+  <div class="card">
+    <h3>${esc(t('r_c_title'))} — ${esc(colLabel)}</h3>
+    <div class="chips"><span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-baby"/></svg>${res.years} ${esc(plural(res.years,t('year_f')))}</span>
+    <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg>${lang==='be'?'прил. 2 к № 174':'прил. 2 к № 174'}</span></div>
+    <div class="tbl-wrap" role="region" aria-label="${esc(colLabel)}" tabindex="0">
+      <table><thead><tr><th>${esc(t('r_who'))}</th><th>${esc(t('r_when'))} · ${esc(colLabel)}</th><th>${esc(t('r_tbl_s'))}</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>
+    ${fns?`<p style="margin:.8em 0 .2em"><strong>${esc(t('r_footn_t'))}</strong></p><ul style="margin:0;padding-left:1.3em" class="note">${fns}</ul>`:''}
+    <div class="vf-note" style="background:var(--mint);border-color:var(--line-2)"><svg class="ic" style="color:var(--accent-bg)" aria-hidden="true"><use href="#i-cal"/></svg><span>${esc(t('r_reminder'))}</span></div>
+    ${riskOn?`<div class="vf-note" style="margin-top:.8rem"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>${esc(t('r_risk_adult_note'))}</span></div>`:''}
+  </div>`;
+}
+$('#child-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const sex=$('input[name="c-sex"]:checked')?.value||null;
+  const riskId=$('#c-risk').checked?($('#c-risk-sel').value||null):null;
+  renderChild(calcChild({sex,dob:parseDateVal($('#c-dob').value),riskId}));
+});
+
+/* ================= ВКЛАДКИ МЕДРАБОТНИКА ================= */
+const tabs=$$('#pro-tabs [role=tab]');
+function activateTab(id,focus=false){
+  tabs.forEach(tb=>{const on=tb.id===id;tb.setAttribute('aria-selected',String(on));tb.tabIndex=on?0:-1;$('#'+tb.getAttribute('aria-controls')).hidden=!on;if(on&&focus)tb.focus();});
+}
+tabs.forEach((tb,i)=>{
+  tb.addEventListener('click',()=>activateTab(tb.id));
+  tb.addEventListener('keydown',e=>{
+    let j=null;
+    if(e.key==='ArrowRight')j=(i+1)%tabs.length;
+    if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;
+    if(e.key==='Home')j=0;if(e.key==='End')j=tabs.length-1;
+    if(j!==null){e.preventDefault();activateTab(tabs[j].id,true);}
+  });
+});
+/* Чек-лист */
+function paintChecklist(){
+  const ul=$('#cl-list');ul.innerHTML='';
+  DATA.checklist.forEach((c,i)=>{
+    const li=document.createElement('li');
+    li.innerHTML=`<label><input type="checkbox" id="cl-${i}"><span class="cl-t">${esc(pick(c,'t'))}<br><span class="ref">${esc(c.ref)} ${vf()}</span></span></label>`;
+    ul.appendChild(li);
+  });
+  $$('#cl-list input').forEach(inp=>inp.addEventListener('change',paintProgress));
+  paintProgress();
+}
+function paintProgress(){const all=$$('#cl-list input');const n=all.filter(i=>i.checked).length;$('#cl-progress').textContent=fill(t('cl_done'),{n,m:all.length});}
+$('#cl-reset').addEventListener('click',()=>{$$('#cl-list input').forEach(i=>i.checked=false);paintProgress();});
+/* Группы здоровья */
+function paintHG(){
+  $('#hg-grid').innerHTML=DATA.healthGroups.map(g=>`
+    <div class="card"><h3>${esc(t('hg_prefix'))} ${g.id}</h3><p style="margin:0">${esc(pick(g,'text'))}. <span class="ref">${lang==='be'?'п. 9.1 № 174':'п. 9.1 № 174'}</span> ${vf()}</p></div>`).join('');
+}
+/* Факторы риска */
+function paintRiskGrid(){
+  $('#risk-grid').innerHTML=DATA.risk.map(r=>`
+    <div class="card"><h3>${esc(pick(r,'title'))}</h3>
+    <p><strong>${esc(t('r_risk_off'))}</strong> ${esc(pick(r,'removal'))}</p>
+    <ul style="margin:.3em 0 0;padding-left:1.3em">${(lang==='be'?r.extra_be:r.extra).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+    <p class="ref" style="margin:.6em 0 0">${esc(r.ref)}</p></div>`).join('');
+}
+/* Охват */
+$('#cov-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const due=parseInt($('#cov-due').value,10),done=parseInt($('#cov-done').value,10);
+  const who=$('#cov-who').value;
+  const res=calcCoverage(due,done),box=$('#cov-result');
+  if(res.error){box.innerHTML=errBox(t('cov_err'));return;}
+  const p=(Math.round(res.p*10)/10).toString().replace('.',',');
+  let tail='';
+  if(who==='child')tail=`<p style="margin:.4em 0 0">${res.childOk?'<svg class="ic" style="color:var(--accent-bg)" aria-hidden="true"><use href="#i-check"/></svg>':'<svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>'} ${esc(t(res.childOk?'cov_ok':'cov_low'))}</p>`;
+  else tail=`<div class="vf-note" style="margin-top:.8rem"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>${esc(t('cov_adult_note'))} ${esc(t('vf_ask'))}.</span></div>`;
+  box.innerHTML=`<div class="card mint" style="margin-top:1rem"><h3>${esc(fill(t('cov_res'),{p}))}</h3>${tail}</div>`;
+});
+/* Карта 3/у-ДР: печать без отправки/сохранения */
+$('#k-print').addEventListener('click',()=>{
+  const v=id=>$(id).value.trim();
+  const sexV=v('#k-sex'),grpV=v('#k-group');
+  const fld=(lbl,val)=>`<tr><th align="left" style="width:14em">${esc(lbl)}</th><td>${esc(val)||'____________________'}</td></tr>`;
+  $('#print-root').innerHTML=`
+    <h1>${esc(t('k_print_t'))}</h1>
+    <table border="1" cellspacing="0" cellpadding="6" style="border-collapse:collapse;width:100%"><tbody>
+      ${fld(t('k_fio'),v('#k-fio'))}
+      ${fld(t('k_dob'),v('#k-dob'))}
+      ${fld(t('k_sex'),sexV?t(sexV==='f'?'k_sex_f':'k_sex_m'):'')}
+      ${fld(t('k_addr'),v('#k-addr'))}
+      ${fld(t('k_date'),v('#k-date'))}
+      ${fld(t('k_group'),grpV)}
+      ${fld(t('k_find'),v('#k-find'))}
+      ${fld(t('k_rec'),v('#k-rec'))}
+      ${fld(t('k_doc'),v('#k-doc'))}
+    </tbody></table>
+    <p class="meta">${esc(t('k_print_note'))}</p>`;
+  document.body.classList.add('printing');window.print();
+});
+/* Реестр сверки */
+function paintRegistry(){
+  $('#verify-list').innerHTML=(lang==='be'?DATA.verify_be:DATA.verify).map(x=>`<li>${vf()}<span>${esc(x)}</span></li>`).join('');
+}
+/* Печать: восстановление + раскрытие details */
+let openedForPrint=[];
+window.addEventListener('beforeprint',()=>{openedForPrint=$$('details.acc:not([open])');openedForPrint.forEach(d=>d.open=true);});
+window.addEventListener('afterprint',()=>{document.body.classList.remove('printing');$('#print-root').innerHTML='';openedForPrint.forEach(d=>d.open=false);openedForPrint=[];});
+
+/* ================= ПОИСК ================= */
+let SEARCH=[];
+function buildSearch(){
+  SEARCH=[];
+  SEARCH.push({kind:'srk_section',ru:'Мой маршрут взрослые 18 39 40 анализы экг флюорография маммография пса пенсионный возраст',be:'мой маршрут дарослыя аналізы экг мамаграфія пса пенсійны ўзрост',href:'#adult',title:()=>t('a_title')});
+  SEARCH.push({kind:'srk_section',ru:'диспансеризация ребёнка дети до года месяц рождения экг 10 лет флюорография 17 аутизм осанка слух зрение дефектолог',be:'дыспансерызацыя дзіцяці дзеці да года месяц нараджэння экг флюараграфія аўтызм осанка слых зрок',href:'#child',title:()=>t('c_title')});
+  SEARCH.push({kind:'srk_section',ru:'линия возрастов шкала ползунок',be:'лінія ўзросту шкала паўзунок',href:'#hero',title:()=>t('tl_title')});
+  SEARCH.push({kind:'srk_doc',ru:'документы постановление 173 174 13 87 125 источники изменения сверить etalonline pravo',be:'дакументы пастанова крыніцы змены звярыць',href:'#docs',title:()=>t('d_title')});
+  const tabGo=id=>()=>activateTab(id,true);
+  SEARCH.push({kind:'srk_tool',ru:'чек-лист проведения пункт 8 ребёнок',be:'чэк-ліст правядзення пункт 8',tab:tabGo('tab-cl'),href:'#pro',title:()=>t('p_t1')});
+  SEARCH.push({kind:'srk_tool',ru:'группы здоровья I II III IV дети пункт 9.1',be:'групы здароўя дзеці пункт 9.1',tab:tabGo('tab-hg'),href:'#pro',title:()=>t('p_t2')});
+  SEARCH.push({kind:'srk_tool',ru:'карта 3/у-ДР форма учета черновик печать приложение 4',be:'карта 3/у-ДР форма ўліку чарнавік друк',tab:tabGo('tab-card'),href:'#pro',title:()=>t('p_t3')});
+  SEARCH.push({kind:'srk_tool',ru:'калькулятор охвата процент 95 дети взрослые пункт 15',be:'калькулятар ахопу працэнт 95 пункт 15',tab:tabGo('tab-cov'),href:'#pro',title:()=>t('p_t4')});
+  SEARCH.push({kind:'srk_tool',ru:'факторы риска до года цнс анемии внезапной смерти внутриутробные инфекции приложение 3',be:'фактары рызыкі да года цнс анеміі раптоўнай смерці',tab:tabGo('tab-risk'),href:'#pro',title:()=>t('p_t5')});
+  $$('#faq details').forEach((d,i)=>{const q=$('summary span',d);const body=$('.acc-body',d);
+    SEARCH.push({kind:'srk_faq',ru:(q?.dataset.origRu||q?.textContent||'')+' '+(body?.dataset.origRu||body?.textContent||''),be:(q?.dataset.origBe||q?.textContent||'')+' '+(body?.textContent||''),href:'#faq',open:d,title:()=>q?.textContent||''});});
+  DATA.adult.exams.forEach(e=>{if(e.norm===false)return;SEARCH.push({kind:'srk_section',ru:e.name,be:e.name_be||e.name,href:'#adult',title:()=>pick(e,'name')});});
+  DATA.child.rows.forEach(r=>SEARCH.push({kind:'srk_section',ru:r.name,be:r.name_be||r.name,href:'#child',title:()=>pick(r,'name')}));
+}
+const srInput=$('#search'),srBox=$('#search-results');let srItems=[];
+function closeSearch(){srBox.classList.remove('open');srInput.setAttribute('aria-expanded','false');}
+function runSearch(){
+  const q=srInput.value.trim().toLowerCase();
+  if(q.length<2){closeSearch();srBox.innerHTML='';return;}
+  const found=SEARCH.filter(s=>(lang==='be'?s.be+' '+s.ru:s.ru+' '+s.be).toLowerCase().includes(q)).slice(0,8);
+  srBox.innerHTML='';
+  srItems=[];
+  if(!found.length){srBox.innerHTML=`<div style="padding:.6em .7em" class="note">${esc(t('sr_none'))}</div>`;}
+  found.forEach(f=>{
+    const b=document.createElement('button');b.type='button';b.className='sr-item';b.setAttribute('role','option');
+    b.innerHTML=`<span class="sr-kind">${esc(t(f.kind))}</span>${esc(f.title())}`;
+    b.addEventListener('click',()=>{closeSearch();srInput.value='';location.hash=f.href;
+      if(f.tab)setTimeout(()=>{f.tab();},60);
+      if(f.open)f.open.open=true;
+      const target=$(f.href==='#pro'?(f.tab?'#pro':'#pro'):f.href);
+      if(target){target.setAttribute('tabindex','-1');setTimeout(()=>target.focus({preventScroll:true}),80);}
+    });
+    srBox.appendChild(b);srItems.push(b);
+  });
+  srBox.classList.add('open');srInput.setAttribute('aria-expanded','true');
+  srBox.setAttribute('aria-label',fill(t('sr_found'),{n:srItems.length}));
+}
+srInput.addEventListener('input',runSearch);
+srInput.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeSearch();srInput.value='';}
+  if(e.key==='ArrowDown'&&srItems.length){e.preventDefault();srItems[0].focus();}
+  if(e.key==='Enter'&&srItems.length){e.preventDefault();srItems[0].click();}
+});
+srBox.addEventListener('keydown',e=>{
+  const i=srItems.indexOf(document.activeElement);
+  if(e.key==='Escape'){closeSearch();srInput.focus();}
+  if(e.key==='ArrowDown'&&srItems[i+1]){e.preventDefault();srItems[i+1].focus();}
+  if(e.key==='ArrowUp'){e.preventDefault();(i>0?srItems[i-1]:srInput).focus();}
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))closeSearch();});
+
+/* ================= ЯЗЫК ================= */
+function applyI18n(){
+  $$('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(I18N[lang][k]!==undefined)el.textContent=I18N[lang][k];});
+  $$('[data-i18n-ph]').forEach(el=>{const k=el.dataset.i18nPh;if(I18N[lang][k]!==undefined)el.placeholder=I18N[lang][k];});
+  $$('[data-i18n-aria]').forEach(el=>{const k=el.dataset.i18nAria;if(I18N[lang][k]!==undefined)el.setAttribute('aria-label',I18N[lang][k]);});
+  htmlEl.lang=lang;
+  $('#lang-cur').textContent=lang==='ru'?'BE':'RU';
+  $('#lang-btn').setAttribute('aria-label',t('lang_aria'));
+  paintTheme();paintEye();
+  renderChips();paintAge();
+  paintChecklist();paintHG();paintRiskGrid();paintRegistry();riskSelectPaint();
+  if(lastAdult)renderAdult(lastAdult);
+  if(lastChild)renderChild(lastChild);
+  buildSearch();
+}
+$('#lang-btn').addEventListener('click',()=>{lang=lang==='ru'?'be':'ru';const p=loadPrefs();p.lang=lang;savePrefs(p);applyI18n();});
+
+/* ================= ИНИЦИАЛИЗАЦИЯ ================= */
+(function saveOrig(){ $$('#faq details').forEach(d=>{const q=$('summary span',d);const b=$('.acc-body',d);if(q){q.dataset.origRu=q.textContent;}if(b){b.dataset.origRu=b.textContent;}});})();
+paintChecklist();paintHG();paintRiskGrid();paintRegistry();riskSelectPaint();buildSearch();paintTheme();paintEye();
+if(lang!=='ru')applyI18n();
+
+/* ================= ВСТРОЕННЫЙ САМОТЕСТ (#test) ================= */
+function runSelfTests(){
+  const NOW=new Date(2026,5,1); // 01.06.2026 — фиксированная точка
+  const D=s=>new Date(s+'T00:00:00');
+  const tests=[];
+  const add=(label,ok,got)=>tests.push({label,ok,got});
+  const grp=(dob,pre=false,sex='f')=>calcAdult({sex,dob,prePension:pre,now:NOW});
+  add('17 лет → не взрослая схема (minor)',grp(D('2009-06-01')).error==='minor');
+  add('18 лет → группа 18–39, 1 рабочий день, раз в 3 года',(()=>{const r=grp(D('2008-06-01'));return r.group?.id==='g18_39'&&r.group.days===1;})());
+  add('39 лет → группа 18–39',grp(D('1987-06-01')).group?.id==='g18_39');
+  add('40 лет → группа 40+, 1 рабочий день',(()=>{const r=grp(D('1986-06-01'));return r.group?.id==='g40a'&&r.group.days===1;})());
+  add('40 лет + предпенсионный период → 2 рабочих дня',(()=>{const r=grp(D('1986-06-01'),true);return r.group?.id==='g40b'&&r.group.days===2;})());
+  const has=(r,id)=>!!r.exams?.some(e=>e.id===id);
+  add('49 лет, женщина → маммография есть',has(grp(D('1977-06-01')),'mammo'));
+  add('48 лет, женщина → маммографии нет',!has(grp(D('1978-06-01')),'mammo'));
+  add('58 лет, женщина → маммография есть',has(grp(D('1968-06-01')),'mammo'));
+  add('59 лет, женщина → маммографии нет',!has(grp(D('1967-06-01')),'mammo'));
+  add('50 лет, мужчина → ПСА есть',has(grp(D('1976-06-01'),false,'m'),'psa'));
+  add('65 лет, мужчина → ПСА есть',has(grp(D('1961-06-01'),false,'m'),'psa'));
+  add('66 лет, мужчина → ПСА нет',!has(grp(D('1960-06-01'),false,'m'),'psa'));
+  add('Мужчине не предлагается осмотр акушера-гинеколога',!has(grp(D('1980-06-01'),false,'m'),'gyn'));
+  add('21 год, женщина → ПАП-тест есть',has(grp(D('2005-06-01')),'pap'));
+  add('30 лет, женщина → ПАП нет, ВПЧ есть',(()=>{const r=grp(D('1996-06-01'));return !has(r,'pap')&&has(r,'hpv');})());
+  add('50 лет → анализ кала на скрытую кровь НЕ показан (norm:false)',!has(grp(D('1976-06-01')),'occult'));
+  const ch=(dob,sex='f')=>calcChild({sex,dob,now:NOW});
+  add('11 мес. → схема до 1 года (прил. 1)',ch(D('2025-07-01')).kind==='u1');
+  add('12 мес. → всё ещё схема до 1 года',ch(D('2025-06-01')).kind==='u1');
+  add('13 мес. → колонка «1–2 года» (прил. 2)',(()=>{const r=ch(D('2025-05-01'));return r.kind==='c1_17'&&r.col===0;})());
+  add('10 лет → есть ЭКГ «в 10 лет»',(()=>{const r=ch(D('2016-06-01'));return r.rows?.some(x=>x.id==='ecg'&&x.cell==='в 10 лет');})());
+  add('11 лет → ЭКГ «в 10 лет» не предлагается',(()=>{const r=ch(D('2015-06-01'));return !r.rows?.some(x=>x.id==='ecg');})());
+  add('17 лет → есть флюорография',(()=>{const r=ch(D('2009-06-01'));return r.rows?.some(x=>x.id==='flg');})());
+  add('18 лет → детская схема возвращает «adult»',ch(D('2008-06-01')).error==='adult');
+  add('Охват 95/100 = 95 % → план детей выполнен',(()=>{const r=calcCoverage(100,95);return r.p===95&&r.childOk;})());
+  add('Охват 94/100 = 94 % → план детей не выполнен',(()=>{const r=calcCoverage(100,94);return r.p===94&&!r.childOk;})());
+  add('Охват: «прошли» > «подлежат» → ошибка',calcCoverage(10,11).error===true);
+  const passed=tests.filter(x=>x.ok).length;
+  console.group('Диспансеризация BY — встроенный самотест');
+  tests.forEach(x=>console.log((x.ok?'[PASS] ':'[FAIL] ')+x.label));
+  console.log(`Итог: ${passed}/${tests.length}`);
+  console.groupEnd();
+  const panel=$('#test-panel');
+  panel.classList.add('open');
+  panel.innerHTML=`<strong>${esc(t('tp_t'))} ${passed}/${tests.length} — ${esc(t(passed===tests.length?'tp_ok':'tp_bad'))}</strong>
+    <ul style="margin:.6em 0 0;padding-left:1.2em">${tests.map(x=>`<li class="${x.ok?'t-ok':'t-bad'}">${x.ok?'✓':'✗'} ${esc(x.label)}</li>`).join('')}</ul>`;
+  return passed===tests.length;
+}
+if(location.hash==='#test'){runSelfTests();}
+window.addEventListener('hashchange',()=>{if(location.hash==='#test')runSelfTests();});
+</script>
+</body>
+</html>
