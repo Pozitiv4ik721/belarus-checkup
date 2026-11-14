@@ -38,14 +38,8 @@
 *   Любой современный браузер (Chrome, Firefox, Safari, Edge).
 *   (Опционально) Локальный веб-сервер для корректной работы некоторых функций (например, `Live Server` в VS Code или `python -m http.server`).
 
-### Запуск
-1. **Клонируйте репозиторий:**
-   ```bash
-   git clone https://github.com/Pozitiv4ik721/belarus-checkup.git
-   cd belarus-checkup
-
 ---
 
 ## 🌐 Демонстрация работы сайта
 
-* https://thyro-guide.vercel.app/
+* https://belarus-checkup.vercel.app/
